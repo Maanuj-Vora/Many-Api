@@ -41,6 +41,20 @@ app.get("/atla-quote/author", function (request, response) {
 });
 /* Avatar The Last Airbender Api End */
 
+
+/* Jester Jokes Api Start */
+var jokes = require('./apiMethods/jokes');
+
+app.get("/jokes/random", function (request, response) {
+    response.send(jokes.getRandom())
+});
+
+app.get("/jokes/amount", function (request, response) {
+    const { amount } = request.query
+    response.send(jokes.getAmount(amount))
+});
+/* Jester Jokes Api End */
+
 const listener = app.listen(port, function () {
     console.log("Your app is listening on port " + listener.address().port);
 });

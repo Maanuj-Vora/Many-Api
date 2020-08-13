@@ -5,6 +5,9 @@ jsonObj = getJsonScript.getJsonObj('jokes')
 values = Object.values(jsonObj)
 
 module.exports = {
+    getAll: function () {
+        return apiHelper.getAllHelper(values)
+    },
     getRandom: function () {
         return apiHelper.getRandomHelper(values)
     },

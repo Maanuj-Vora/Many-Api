@@ -45,6 +45,10 @@ app.get("/atla-quote/author", function (request, response) {
 /* Jester Jokes Api Start */
 var jokes = require('./apiMethods/jokes');
 
+app.get("/jokes", function (request, response) {
+    response.send(jokes.getAll())
+});
+
 app.get("/jokes/random", function (request, response) {
     response.send(jokes.getRandom())
 });

@@ -49,6 +49,20 @@
             "methods": [
                 "GET"
             ]
+        },
+        {
+            "src": "/jokes/random",
+            "dest": "/index.js",
+            "methods": [
+                "GET"
+            ]
+        },
+        {
+            "src": "/jokes/amount",
+            "dest": "/index.js",
+            "methods": [
+                "GET"
+            ]
         }
     ]
 }

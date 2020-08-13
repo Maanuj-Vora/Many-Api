@@ -25,7 +25,7 @@ while index < len(csvList):
             data[str(lineIndex)] = item
             lineIndex+=1
 
-    if(not path.exists(jsonList[index])):
+    if(not os.path.exists(jsonList[index])):
         os.mknod(jsonList[index])
 
     with open(jsonList[index], 'w', encoding='utf-8') as openJSON:

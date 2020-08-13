@@ -44,7 +44,8 @@ function getAuthorHelper(author) {
         for (var x = 0; x < values.length; x++) {
             data.push(values[x].author)
         }
-        return data.filter((x, y, z) => z.indexOf(x) === y)
+        dict = {"authors": data.filter((x, y, z) => z.indexOf(x) === y)}
+        return dict
     }
     for (var x = 0; x < values.length; x++) {
         if (values[x].author.toLowerCase() == author.toLowerCase()) {

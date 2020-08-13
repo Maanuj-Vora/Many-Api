@@ -1,0 +1,54 @@
+{
+    "version": 2,
+    "builds": [
+        {
+            "src": "/index.js",
+            "use": "@now/node-server"
+        },
+        {
+            "src": "/apiMethods/**",
+            "use": "@now/static"
+        },
+        {
+            "src": "/data/**",
+            "use": "@now/static"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/",
+            "dest": "/index.js",
+            "methods": [
+                "GET"
+            ]
+        },
+        {
+            "src": "/atla-quote",
+            "dest": "/index.js",
+            "methods": [
+                "GET"
+            ]
+        },
+        {
+            "src": "/atla-quote/random",
+            "dest": "/index.js",
+            "methods": [
+                "GET"
+            ]
+        },
+        {
+            "src": "/atla-quote/amount",
+            "dest": "/index.js",
+            "methods": [
+                "GET"
+            ]
+        },
+        {
+            "src": "/atla-quote/author",
+            "dest": "/index.js",
+            "methods": [
+                "GET"
+            ]
+        }
+    ]
+}

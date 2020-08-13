@@ -1,0 +1,23 @@
+{
+  "name": "many-api",
+  "version": "1.0.0",
+  "description": "One api that has many",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Maanuj-Vora/Many-Api.git"
+  },
+  "author": "Maanuj Vora",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Maanuj-Vora/Many-Api/issues"
+  },
+  "homepage": "https://github.com/Maanuj-Vora/Many-Api#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

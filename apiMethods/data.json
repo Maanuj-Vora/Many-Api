@@ -1,0 +1,5 @@
+{
+    "csvPath": "data/csv/",
+    "jsonPath": "data/json/",
+    "atlaQuote": "atla-quotes"
+}

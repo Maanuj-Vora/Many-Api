@@ -1,6 +1,11 @@
 name: Action Jackson
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
+    paths:
+    - 'data/csv/**'
 
 jobs:
   build:

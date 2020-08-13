@@ -19,20 +19,6 @@ app.get("/", (req, res) => {
     });
 });
 
-// // Mock APIs
-// app.get("/users", (req, res) => {
-//     res.json([
-//         { name: "William", location: "Abu Dhabi" },
-//         { name: "Chris", location: "Vegas" }
-//     ]);
-// });
-
-// app.post("/user", (req, res) => {
-//     const { name, location } = req.body;
-
-//     res.send({ status: "User created", name, location });
-// });
-
 /* Avatar The Last Airbender Api Start */
 var atlaQuotes = require('./apiMethods/atla-quotes');
 

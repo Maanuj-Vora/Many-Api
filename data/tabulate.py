@@ -25,7 +25,11 @@ while index < len(csvList):
             data[str(lineIndex)] = item
             lineIndex+=1
 
-
+    try:
+        f = open(jsonList[index], "w")
+    except Exception as e:
+        f = open(jsonList[index], "x") 
+        
     with open(jsonList[index], 'w', encoding='utf-8') as openJSON:
         openJSON.write(json.dumps(data, indent=4, ensure_ascii=False))
 

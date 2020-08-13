@@ -1,6 +1,6 @@
 name: Action Jackson
 
-on:[push]
+on: [push]
 
 jobs:
   build:

@@ -51,6 +51,13 @@
             ]
         },
         {
+            "src": "/jokes",
+            "dest": "/index.js",
+            "methods": [
+                "GET"
+            ]
+        },
+        {
             "src": "/jokes/random",
             "dest": "/index.js",
             "methods": [

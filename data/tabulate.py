@@ -26,7 +26,7 @@ while index < len(csvList):
             lineIndex+=1
 
     if(not os.path.exists(jsonList[index])):
-        os.mknod(jsonList[index])
+        open(jsonList[index], 'a').close()
 
     with open(jsonList[index], 'w', encoding='utf-8') as openJSON:
         openJSON.write(json.dumps(data, indent=4, ensure_ascii=False))

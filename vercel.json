@@ -30,6 +30,13 @@
             ]
         },
         {
+            "src": "/atla-quote/all",
+            "dest": "/index.js",
+            "methods": [
+                "GET"
+            ]
+        },
+        {
             "src": "/atla-quote/random",
             "dest": "/index.js",
             "methods": [

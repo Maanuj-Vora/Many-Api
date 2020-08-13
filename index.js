@@ -23,6 +23,10 @@ app.get("/", (req, res) => {
 var atlaQuotes = require('./apiMethods/atla-quotes');
 
 app.get("/atla-quote", function (request, response) {
+    response.send(atlaQuotes.getInfo())
+});
+
+app.get("/atla-quote/all", function (request, response) {
     response.send(atlaQuotes.getAll())
 });
 

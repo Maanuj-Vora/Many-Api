@@ -25,10 +25,10 @@ while index < len(csvList):
             data[str(lineIndex)] = item
             lineIndex+=1
 
-    # if(not path.exists(jsonList[index])):
+    if(not path.exists(jsonList[index])):
+        os.mknod(jsonList[index])
 
-
-    with open(jsonList[index], 'w+', encoding='utf-8') as openJSON:
+    with open(jsonList[index], 'w', encoding='utf-8') as openJSON:
         openJSON.write(json.dumps(data, indent=4, ensure_ascii=False))
 
     index+=1

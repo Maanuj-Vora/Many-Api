@@ -4,10 +4,9 @@ on: [push]
 
 jobs:
   build:
-    name: The name's Bond
+    name: Action
     runs-on: ubuntu-latest
     steps:
-    - name: James Bond
     - uses: actions/checkout@v2
     - uses: actions/setup-python@v2
       with:

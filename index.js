@@ -11,7 +11,12 @@ Visit http://localhost:`+listener.address().port);
 });
 
 app.get("/", (req, res) => {
-    res.send("Welcome to a basic express App");
+    res.send({
+        "welcome": "Welcome to Many Api",
+        "about": "This api has been created by Maanuj Vora",
+        "link": "Visit here to get more up to speed https://github.com/Maanuj-Vora/Many-Api",
+        "documentation": "Documentation coming soon!"
+    });
 });
 
 // // Mock APIs

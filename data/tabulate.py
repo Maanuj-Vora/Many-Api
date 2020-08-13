@@ -7,8 +7,8 @@ import default
 csvList = []
 jsonList = []
 
-csvFilePath = default.get("config.json").csvPath
-jsonFilePath = default.get("config.json").jsonPath
+csvFilePath = default.get("apiMethods/data.json").csvPath
+jsonFilePath = default.get("apiMethods/data.json").jsonPath
 
 for file in os.listdir(csvFilePath):
     if file.endswith(".csv"):

@@ -46,7 +46,7 @@ app.get("/atla-quote/author", function (request, response) {
 var jokes = require('./apiMethods/jokes');
 
 app.get("/jokes", function (request, response) {
-    response.send(jokes.getAll())
+    response.send(jokes.getInfo())
 });
 
 app.get("/jokes/random", function (request, response) {

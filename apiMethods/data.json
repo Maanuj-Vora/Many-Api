@@ -2,5 +2,6 @@
     "csvPath": "data/csv/",
     "jsonPath": "data/json/",
     "atlaQuote": "atla-quotes",
-    "jokes": "jokes"
+    "jokes": "jokes",
+    "realDonaldTrump_tweets": "realDonaldTrump_tweets"
 }

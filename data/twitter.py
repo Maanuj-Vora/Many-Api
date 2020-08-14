@@ -22,7 +22,7 @@ def getTodayTweets(screen_name):
 
     tweets = []
 
-    tmpTweets = api.user_timeline(screen_name)
+    tmpTweets = api.user_timeline(screen_name, tweet_mode="extended")
     for tweet in tmpTweets:
         if tweet.created_at < endDate and tweet.created_at > startDate:
             tweets.append(tweet)
@@ -33,7 +33,7 @@ def getTodayTweets(screen_name):
             if tweet.created_at < endDate and tweet.created_at > startDate:
                 tweets.append(tweet)
 
-    outtweets = [[tweet.id_str, tweet.created_at, tweet.text]
+    outtweets = [[tweet.id_str, tweet.created_at, tweet.full_text]
                  for tweet in tweets]
 
     with open(f'{csvFilePath}{screen_name}_tweets.csv', 'a', encoding='utf-8') as csvFile:

@@ -17,11 +17,11 @@ jobs:
         python -m pip install --upgrade pip
         pip install flake8 pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      env:
-        access_key: ${{ secrets.TWITTER_ACCESS_KEY }}
-        access_secret: ${{ secrets.TWITTER_ACCESS_SECRET }}
-        consume_key: ${{ secrets.TWITTER_CONSUMER_KEY }}
-        consumer_secret: ${{ secrets.TWITTER_CONSUMER_SECRET }}        
+      with:
+        TWITTER_ACCESS_KEY: ${{ secrets.TWITTER_ACCESS_KEY }}
+        TWITTER_ACCESS_SECRET: ${{ secrets.TWITTER_ACCESS_SECRET }}
+        TWITTER_CONSUMER_KEY: ${{ secrets.TWITTER_CONSUMER_KEY }}
+        TWITTER_CONSUMER_SECRET: ${{ secrets.TWITTER_CONSUMER_SECRET }}        
     - run: python data/twitter.py
     - name: Commit files
       run: |

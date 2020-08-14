@@ -12,7 +12,8 @@ Many-Api is essentially a gathering of multiple RESTful Api's which can be used 
 
 Currently it has
 - [x] ATLA Quotes
-- [x] Jokes from Jester Database
+- [x] Jokes
+- [x] Donald Trump Tweets from 8/12/20
 
 We are always looking to add more api's!
 

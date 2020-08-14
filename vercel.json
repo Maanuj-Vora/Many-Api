@@ -77,6 +77,27 @@
             "methods": [
                 "GET"
             ]
+        },
+        {
+            "src": "/donald-tweets",
+            "dest": "/index.js",
+            "methods": [
+                "GET"
+            ]
+        },
+        {
+            "src": "/donald-tweets/random",
+            "dest": "/index.js",
+            "methods": [
+                "GET"
+            ]
+        },
+        {
+            "src": "/donald-tweets/amount",
+            "dest": "/index.js",
+            "methods": [
+                "GET"
+            ]
         }
     ]
 }

@@ -9,14 +9,16 @@ csvFilePath = default.get("apiMethods/data.json").csvPath
 
 
 def getTodayTweets(screen_name):
-    CONSUMER_KEY = os.environ.get('INPUT_TWITTER_CONSUMER_KEY')
-    CONSUMER_SECRET = os.environ.get('INPUT_TWITTER_CONSUMER_SECRET')
-    auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
-    auth.set_access_token(os.getenv['INPUT_TWITTER_ACCESS_KEY'], os.getenv['INPUT_TWITTER_ACCESS_SECRET'])
+    auth = tweepy.OAuthHandler(os.environ.get(
+        'INPUT_TWITTER_CONSUMER_KEY'), os.environ.get('INPUT_TWITTER_CONSUMER_SECRET'))
+    auth.set_access_token(os.environ.get(
+        'INPUT_TWITTER_ACCESS_KEY'), os.environ.get('INPUT_TWITTER_ACCESS_SECRET'))
     api = tweepy.API(auth)
 
-    startDate = (datetime.today() - timedelta(days=2)).replace(hour=0, minute=0, second=0)
-    endDate = (datetime.today() - timedelta(days=1)).replace(hour=0, minute=0, second=0)
+    startDate = (datetime.today() - timedelta(days=2)
+                 ).replace(hour=0, minute=0, second=0)
+    endDate = (datetime.today() - timedelta(days=1)
+               ).replace(hour=0, minute=0, second=0)
 
     tweets = []
 

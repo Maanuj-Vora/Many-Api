@@ -1,8 +1,8 @@
 name: The Foxy Does What The Foxy Wants
 
-on: [push]
-  # schedule:
-  #   - cron: "0 0 * * *"
+on:
+  schedule:
+    - cron: "0 0 * * *"
 
 jobs:
   build:

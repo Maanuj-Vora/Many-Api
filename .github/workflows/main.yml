@@ -1,27 +1,27 @@
 name: Action Jackson
 
 on:
-  # push:
-  #   branches:
-  #     - master
-  #   paths:
-  #   - 'data/csv/**'
+  push:
+    branches:
+      - master
+    paths:
+      - "data/csv/**"
   schedule:
-    - cron:  '0 * * * *'
+    - cron: "0 * * * *"
 
 jobs:
   build:
     name: Action
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-python@v2
-      with:
-        python-version: '3.x'
-        architecture: 'x64'
-    - run: python data/tabulate.py
-    - name: Commit files
-      run: |
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: "3.x"
+          architecture: "x64"
+      - run: python data/tabulate.py
+      - name: Commit files
+        run: |
           git config --local user.email "action@github.com"
           git config --local user.name "Api Updater"
           git add .

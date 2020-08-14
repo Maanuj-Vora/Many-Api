@@ -1,0 +1,27 @@
+name: The Foxy Does What The Foxy Wants
+
+on: [push]
+
+jobs:
+  build:
+    name: Dweeb
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+        architecture: 'x64'
+      env:
+        access_key: ${{ secrets.TWITTER_ACCESS_KEY }}
+        access_secret: ${{ secrets.TWITTER_ACCESS_SECRET }}
+        consume_key: ${{ secrets.TWITTER_CONSUMER_KEY }}
+        consumer_secret: ${{ secrets.TWITTER_CONSUMER_SECRET }}        
+    - run: python data/twitter.py
+    - name: Commit files
+      run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "Api Updater"
+          git add .
+          git diff-index --quiet HEAD || git commit -m "Twitter Data Updated 🦊" -a
+          git push

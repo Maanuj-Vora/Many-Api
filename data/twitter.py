@@ -38,7 +38,7 @@ def getTodayTweets(screen_name):
 
     with open(f'{csvFilePath}{screen_name}_tweets.csv', 'a', encoding='utf-8') as csvFile:
         writer = csv.writer(csvFile, delimiter='|')
-        writer.writerow()
+        writer.writerow("")
         writer.writerows(outtweets)
 
     pass

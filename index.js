@@ -12,7 +12,7 @@ Visit http://localhost:`+ listener.address().port);
 
 app.get("/", (req, res) => {
     res.send({
-        "welcome": "Welcome to Many Api, or you may have come here if you typed in the url wrong(404 Error), please consult the notes below",
+        "welcome": "Welcome to Many Api",
         "about": "This api has been created by Maanuj Vora",
         "link": "Visit here to get more up to speed https://github.com/Maanuj-Vora/Many-Api",
         "possible paths": [

@@ -40,6 +40,7 @@ def getTodayTweets(screen_name):
     with open(f'{csvFilePath}{screen_name}_tweets.csv', 'r') as check:
         char = check.read(1)
         if not char:
+            writer = csv.writer(check, delimiter='|')
             writer.writerow("id|created at|tweet")
 
     with open(f'{csvFilePath}{screen_name}_tweets.csv', 'a', encoding='utf-8') as csvFile:

@@ -19,7 +19,7 @@ app.get("/", (req, res) => {
             '/atla-quotes', '/jokes', '/tweets'
         ],
         "notes": "If you add an extra frontslash in the end, the api will not be functionable",
-        "documentation": "Documentation coming soon!"
+        "documentation": "Documentation coming soon"
     });
 });
 

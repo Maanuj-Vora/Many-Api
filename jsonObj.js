@@ -4,6 +4,9 @@ const path = require('path');
 module.exports = {
     getJsonObj: function (itemName) {
         return getJson(getPath(itemName))
+    },
+    getJsonObjRaw: function (itemName) {
+        return getJson(getPathRaw(itemName))
     }
 };
 
@@ -17,4 +20,11 @@ function getJson(pathName) {
     let rawdata = fs.readFileSync(path.resolve(__dirname, pathName));
     let jsonObj = JSON.parse(rawdata);
     return (jsonObj)
+}
+
+function getPathRaw(configName) {
+    console.log(__dirname)
+    let rawdata = fs.readFileSync(path.resolve(__dirname + "/apiMethods/data.json"));
+    let config = JSON.parse(rawdata);
+    return (config['jsonPath'] + configName + '.json')
 }

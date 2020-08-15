@@ -79,21 +79,21 @@
             ]
         },
         {
-            "src": "/donald-tweets",
+            "src": "/tweets",
             "dest": "/index.js",
             "methods": [
                 "GET"
             ]
         },
         {
-            "src": "/donald-tweets/random",
+            "src": "/tweets/random",
             "dest": "/index.js",
             "methods": [
                 "GET"
             ]
         },
         {
-            "src": "/donald-tweets/amount",
+            "src": "/tweets/amount",
             "dest": "/index.js",
             "methods": [
                 "GET"

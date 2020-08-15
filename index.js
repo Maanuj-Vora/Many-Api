@@ -63,22 +63,24 @@ app.get("/jokes/amount", function (request, response) {
 });
 /* Jokes Api End */
 
-/* Trump Tweet Api Start */
-var jokes = require('./apiMethods/donald-tweets');
+/* Tweet Api Start */
+var tweet = require('./apiMethods/tweets');
 
-app.get("/donald-tweets", function (request, response) {
-    response.send(jokes.getInfo())
+app.get("/tweets", function (request, response) {
+    response.send(tweet.getInfo())
 });
 
-app.get("/donald-tweets/random", function (request, response) {
-    response.send(jokes.getRandom())
+app.get("/tweets/random", function (request, response) {
+    const { account } = request.query
+    response.send(tweet.getRandom(account))
 });
 
-app.get("/donald-tweets/amount", function (request, response) {
+app.get("/tweets/amount", function (request, response) {
     const { amount } = request.query
-    response.send(jokes.getAmount(amount))
+    const { account } = request.query
+    response.send(tweet.getAmount(account, amount))
 });
-/* Trump Tweet Api End */
+/* Tweet Api End */
 
 
 

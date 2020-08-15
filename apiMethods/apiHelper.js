@@ -18,7 +18,7 @@ module.exports = {
         }
         return data
     },
-    
+
     getAuthorHelper: function (values, author) {
         data = []
         if (author == undefined) {

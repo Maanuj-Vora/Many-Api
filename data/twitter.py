@@ -27,13 +27,15 @@ def getTodayTweets(screen_name):
     for tweet in tmpTweets:
         if tweet.created_at < endDate and tweet.created_at > startDate:
             tweets.append(tweet)
-
-    while (tmpTweets[-1].created_at > startDate):
-        tmpTweets = api.user_timeline(
-            screen_name, max_id=tmpTweets[-1].id, tweet_mode="extended")
-        for tweet in tmpTweets:
-            if tweet.created_at < endDate and tweet.created_at > startDate:
-                tweets.append(tweet)
+    if(len(tmpTweets) > 0):
+        while (tmpTweets[-1].created_at > startDate):
+            tmpTweets = api.user_timeline(
+                screen_name, max_id=tmpTweets[-1].id, tweet_mode="extended")
+            for tweet in tmpTweets:
+                if tweet.created_at < endDate and tweet.created_at > startDate:
+                    tweets.append(tweet)
+    else:
+        return
 
     outtweets = [[tweet.id_str, tweet.created_at, tweet.full_text]
                  for tweet in tweets]

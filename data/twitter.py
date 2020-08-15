@@ -62,4 +62,5 @@ def getTodayTweets(screen_name):
 
 accountHandles = default.get("apiMethods/data.json").twitterHandles
 for x in accountHandles:
+    print(x)
     getTodayTweets(x)

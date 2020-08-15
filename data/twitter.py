@@ -29,7 +29,8 @@ def getTodayTweets(screen_name):
             tweets.append(tweet)
 
     while (tmpTweets[-1].created_at > startDate):
-        tmpTweets = api.user_timeline(screen_name, max_id=tmpTweets[-1].id, tweet_mode="extended")
+        tmpTweets = api.user_timeline(
+            screen_name, max_id=tmpTweets[-1].id, tweet_mode="extended")
         for tweet in tmpTweets:
             if tweet.created_at < endDate and tweet.created_at > startDate:
                 tweets.append(tweet)
@@ -43,12 +44,15 @@ def getTodayTweets(screen_name):
         if not char:
             shouldRow = True
 
-    with open(f'{csvFilePath}{screen_name}_tweets.csv', 'a', encoding='utf-8') as csvFile:
+    if(shouldRow):
+        f = open(f'{csvFilePath}{screen_name}_tweets.csv', 'w')
+        f.write("id|created at|tweet")  
+        f.close()
+
+   with open(f'{csvFilePath}{screen_name}_tweets.csv', 'a', encoding='utf-8') as csvFile:
         writer = csv.writer(csvFile, delimiter='|')
-        if(shouldRow):
-            writer.writerow("id|created at|tweet")
         writer.writerows(outtweets)
-    
+
     file = open(f'{jsonFilePath}{screen_name}_tweets.json', "w+")
 
     pass

@@ -37,12 +37,16 @@ def getTodayTweets(screen_name):
     outtweets = [[tweet.id_str, tweet.created_at, tweet.full_text]
                  for tweet in tweets]
 
+    with open(f'{csvFilePath}{screen_name}_tweets.csv', 'r') as check:
+        char = check.read(1)
+        if not char:
+            writer.writerow("id|created at|tweet")
+
     with open(f'{csvFilePath}{screen_name}_tweets.csv', 'a', encoding='utf-8') as csvFile:
         writer = csv.writer(csvFile, delimiter='|')
-        writer.writerow("")
         writer.writerows(outtweets)
     
-    with open(f'{jsonFilePath}{screen_name}_tweets.json')
+    file = open(f'{jsonFilePath}{screen_name}_tweets.json', "w+")
 
     pass
 

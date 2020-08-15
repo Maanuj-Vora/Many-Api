@@ -6,6 +6,7 @@ from datetime import datetime, timedelta
 
 
 csvFilePath = default.get("apiMethods/data.json").csvPath
+jsonFilePath = default.get("apiMethods/data.json").jsonPath
 
 
 def getTodayTweets(screen_name):
@@ -40,6 +41,8 @@ def getTodayTweets(screen_name):
         writer = csv.writer(csvFile, delimiter='|')
         writer.writerow("")
         writer.writerows(outtweets)
+    
+    with open(f'{jsonFilePath}{screen_name}_tweets.json')
 
     pass
 

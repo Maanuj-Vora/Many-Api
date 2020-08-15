@@ -15,6 +15,9 @@ app.get("/", (req, res) => {
         "welcome": "Welcome to Many Api",
         "about": "This api has been created by Maanuj Vora",
         "link": "Visit here to get more up to speed https://github.com/Maanuj-Vora/Many-Api",
+        "possible paths": [
+            '/atla-quotes', '/jokes', '/tweets'
+        ],
         "documentation": "Documentation coming soon!"
     });
 });

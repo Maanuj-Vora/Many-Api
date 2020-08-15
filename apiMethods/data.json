@@ -3,5 +3,6 @@
     "jsonPath": "data/json/",
     "atlaQuote": "atla-quotes",
     "jokes": "jokes",
-    "realDonaldTrump_tweets": "realDonaldTrump_tweets"
+    "realDonaldTrump_tweets": "realDonaldTrump_tweets",
+    "twitterHandles": ["sosadtoday", "realDonaldTrump_tweets"]
 }

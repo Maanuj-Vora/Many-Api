@@ -60,4 +60,6 @@ def getTodayTweets(screen_name):
     pass
 
 
-getTodayTweets("realDonaldTrump")
+accountHandles = default.get("apiMethods/data.json").twitterHandles
+for x in accountHandles:
+    getTodayTweets(x)

@@ -18,6 +18,14 @@
         {
             "src": "/",
             "dest": "/index.js",
+            "methods":[
+                "GET"
+            ],
+            "status": 404
+        },
+        {
+            "src": "/",
+            "dest": "/index.js",
             "methods": [
                 "GET"
             ]

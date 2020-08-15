@@ -46,14 +46,14 @@ def getTodayTweets(screen_name):
 
     if(shouldRow):
         f = open(f'{csvFilePath}{screen_name}_tweets.csv', 'w')
-        f.write("id|created at|tweet")
+        f.write("id|created at|tweet\n")
         f.close()
 
     with open(f'{csvFilePath}{screen_name}_tweets.csv', 'a', encoding='utf-8') as csvFile:
         writer = csv.writer(csvFile, delimiter='|')
         writer.writerows(outtweets)
 
-    file = open(f'{jsonFilePath}{screen_name}_tweets.json', "w+")
+    # file = open(f'{jsonFilePath}{screen_name}_tweets.json', "w+")
 
     pass
 

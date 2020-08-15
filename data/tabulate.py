@@ -32,7 +32,7 @@ while index < len(csvList):
     # # except Exception as e:
     # #     f = open(jsonList[index], "x") 
     
-    
+    file = open(f'{jsonList[index]}', "w+")
 
     with open(jsonList[index], 'w', encoding='utf-8') as openJSON:
         openJSON.write(json.dumps(data, indent=4, ensure_ascii=False))

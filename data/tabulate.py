@@ -18,7 +18,7 @@ for file in os.listdir(csvFilePath):
     if file.endswith(".csv"):
         df = pd.read_csv(f"{csvFilePath}{str(file)}", sep="|")
         df.drop_duplicates(inplace=True)
-        df.to_csv(f"{csvFilePath}{str(file)}", index=False)
+        df.to_csv(f"{csvFilePath}{str(file)}", index=False, sep="|")
 
         csvList.append(f"{csvFilePath}{str(file)}")
         jsonList.append(f"{jsonFilePath}{str(file[:-4])}.json")

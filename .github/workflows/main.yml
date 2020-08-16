@@ -1,13 +1,13 @@
 name: Action Jackson
 
-on: [push]
-  # push:
-  #   branches:
-  #     - master
-  #   paths:
-  #     - "data/csv/**"
-  # schedule:
-  #   - cron: "5 7 * * *"
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - "data/csv/**"
+  schedule:
+    - cron: "5 7 * * *"
 
 jobs:
   build:

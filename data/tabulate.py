@@ -13,11 +13,6 @@ jsonFilePath = default.get("apiMethods/data.json").jsonPath
 
 for file in os.listdir(csvFilePath):
     if file.endswith(".csv"):
-        seen = set()
-        for line in fileinput.FileInput(f'{csvFilePath}{str(file)}', inplace=1):
-            if line in seen:
-                continue
-            seen.add(line)
         csvList.append(f"{csvFilePath}{str(file)}")
         jsonList.append(f"{jsonFilePath}{str(file[:-4])}.json")
 
@@ -29,18 +24,18 @@ while index < len(csvList):
         lineIndex = 1
         for item in csvReader:
             data[str(lineIndex)] = item
-            lineIndex += 1
+            lineIndex+=1
 
     # os.mknod(jsonList[index])
 
     # # try:
     # #     f = open(jsonList[index], "w")
     # # except Exception as e:
-    # #     f = open(jsonList[index], "x")
-
+    # #     f = open(jsonList[index], "x") 
+    
     file = open(f'{jsonList[index]}', "w+")
 
     with open(jsonList[index], 'w', encoding='utf-8') as openJSON:
         openJSON.write(json.dumps(data, indent=4, ensure_ascii=False))
 
-    index += 1
+    index+=1

@@ -40,7 +40,7 @@ def getTodayTweets(screen_name):
     outtweets = [[tweet.id_str, tweet.created_at, tweet.full_text]
                  for tweet in tweets]
 
-    file = open(f'{csvFilePath}{screen_name}_tweets.csv', "w+")
+#     file = open(f'{csvFilePath}{screen_name}_tweets.csv', "w+")
 
     shouldRow = False
     with open(f'{csvFilePath}{screen_name}_tweets.csv', 'r') as check:

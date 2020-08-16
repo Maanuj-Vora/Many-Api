@@ -16,7 +16,7 @@ jsonFilePath = default.get("apiMethods/data.json").jsonPath
 
 for file in os.listdir(csvFilePath):
     if file.endswith(".csv"):
-        df = pd.read_csv(f"{csvFilePath}{str(file)}")
+        df = pd.read_csv(f"{csvFilePath}{str(file)}", sep="|")
         df.drop_duplicates(inplace=True)
         df.to_csv(f"{csvFilePath}{str(file)}", index=False)
 

@@ -60,11 +60,13 @@ def getTodayTweets(screen_name):
         with open(f'{csvFilePath}{screen_name}_tweets.csv', 'a', encoding='utf-8') as csvFile:
             writer = csv.writer(csvFile, delimiter='|')
             writer.writerows(outtweets)
+        return
 
     # file = open(f'{jsonFilePath}{screen_name}_tweets.json', "w+")
     
     except Exception as e:
         print('Error: ' + e)
+        return
 
     pass
 

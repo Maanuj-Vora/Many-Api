@@ -47,7 +47,7 @@ def getTodayTweets(screen_name):
 
 
     tweets = []
-    tmpTweets = api.user_timeline(screen_name)
+    tmpTweets = api.user_timeline(screen_name, count=300)
     for tweet in tmpTweets:
         if tweet.created_at < endDate and tweet.created_at > startDate:
             tweets.append(tweet)

@@ -39,7 +39,7 @@ def getTodayTweets(screen_name):
                 for tweet in tmpTweets:
                     if tweet.created_at < endDate and tweet.created_at > startDate:
                         tweets.append(tweet)
-         except Exception as e:
+        except Exception as e:
             print('Error: ' + e)
             
     else:

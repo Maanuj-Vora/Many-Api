@@ -40,7 +40,7 @@ def getTodayTweets(screen_name):
                     if tweet.created_at < endDate and tweet.created_at > startDate:
                         tweets.append(tweet)
         except Exception as e:
-            print('Error: ' + e)
+            print('Error: ' + str(e))
             
     else:
         return
@@ -70,7 +70,7 @@ def getTodayTweets(screen_name):
     # file = open(f'{jsonFilePath}{screen_name}_tweets.json', "w+")
     
 #     except Exception as e:
-#         print('Error: ' + e)
+#         print('Error: ' + str(e))
 #         return
 
 #     pass

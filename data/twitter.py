@@ -24,26 +24,40 @@ def getTodayTweets(screen_name):
     endDate = (datetime.today() - timedelta(days=1)
                ).replace(hour=0, minute=0, second=0)
 
-    tweets = []
+#     tweets = []
 
-    tmpTweets = api.user_timeline(screen_name, tweet_mode="extended")
+#     tmpTweets = api.user_timeline(screen_name, tweet_mode="extended")
+#     for tweet in tmpTweets:
+#         if tweet.created_at < endDate and tweet.created_at > startDate:
+#             tweets.append(tweet)
+# #     print(tmpTweets)
+#     if(len(tmpTweets) > 1):
+#         try:
+#             while (tmpTweets[-1].created_at > startDate):
+#                 tmpTweets = api.user_timeline(screen_name, max_id=tmpTweets[-1].id, tweet_mode="extended")
+#     #                 screen_name, max_id=tmpTweets[-1].id, tweet_mode="extended")
+#                 for tweet in tmpTweets:
+#                     if tweet.created_at < endDate and tweet.created_at > startDate:
+#                         tweets.append(tweet)
+#         except Exception as e:
+#             print('Error: ' + str(e))
+            
+#     else:
+#         return
+
+
+    tweets = []
+    tmpTweets = api.user_timeline(screen_name)
     for tweet in tmpTweets:
         if tweet.created_at < endDate and tweet.created_at > startDate:
             tweets.append(tweet)
-#     print(tmpTweets)
-    if(len(tmpTweets) > 1):
-        try:
-            while (tmpTweets[-1].created_at > startDate):
-                tmpTweets = api.user_timeline(screen_name, max_id=tmpTweets[-1].id, tweet_mode="extended")
-    #                 screen_name, max_id=tmpTweets[-1].id, tweet_mode="extended")
-                for tweet in tmpTweets:
-                    if tweet.created_at < endDate and tweet.created_at > startDate:
-                        tweets.append(tweet)
-        except Exception as e:
-            print('Error: ' + str(e))
-            
-    else:
-        return
+
+    while (tmpTweets[-1].created_at > startDate):
+        print("Last Tweet @", tmpTweets[-1].created_at, " - fetching some more")
+        tmpTweets = api.user_timeline(username, max_id = tmpTweets[-1].id)
+        for tweet in tmpTweets:
+            if tweet.created_at < endDate and tweet.created_at > startDate:
+                tweets.append(tweet)
 
     outtweets = [[tweet.id_str, tweet.created_at, tweet.full_text]
                  for tweet in tweets]

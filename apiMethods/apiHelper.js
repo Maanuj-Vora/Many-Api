@@ -1,4 +1,12 @@
 module.exports = {
+
+    getValues: function (fileName) {
+        const getJsonScript = require('../jsonObj');
+        jsonObj = getJsonScript.getJsonObj(fileName)
+        values = Object.values(jsonObj)
+        return values
+    },
+
     getAllHelper: function (values) {
         return values
     },

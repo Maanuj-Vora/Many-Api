@@ -100,9 +100,8 @@ app.get("/coronavirus/all", function (request, response) {
 
 app.get("/coronavirus/getData", function (request, response) {
     const { date } = request.query
-    const { country } = request.query
     const { iso } = request.query
-    response.send(coronavirus.getData(date, country, iso))
+    response.send(coronavirus.getData(date, iso))
 });
 
 app.get("/coronavirus/getISO", function (request, response) {

@@ -16,8 +16,8 @@ module.exports = {
         // return apiHelper.getAllHelper(apiHelper.getValues('coronavirus'))
     },
 
-    getData: function (date, country, iso) {
-        return getDataLocal(apiHelper.getValues('coronavirus'), date, country, iso)
+    getData: function (date, iso) {
+        return getDataLocal(apiHelper.getValues('coronavirus'), date, iso)
     },
 
     getISO: function (iso) {
@@ -63,11 +63,11 @@ function getCountryLocal(values, location) {
     return data
 }
 
-function getDataLocal(values, date, country, iso) {
+function getDataLocal(values, date, iso) {
 
     data = []
 
-    if (date == undefined && country == undefined && iso == undefined){
+    if (date == undefined && iso == undefined){
         var today = new Date();
         var dd = String(today.getDate()).padStart(2, '0');
         var mm = String(today.getMonth() + 1).padStart(2, '0');
@@ -75,6 +75,30 @@ function getDataLocal(values, date, country, iso) {
         today = yyyy + '-' + mm + '-' + dd;
         for (var x = 0; x < values.length; x++) {
             if (values[x].date == today) {
+                data.push(values[x])
+            }
+        }
+        return data
+    }
+    else if (date != undefined && iso == undefined){
+        for (var x = 0; x < values.length; x++) {
+            if (values[x].date == date) {
+                data.push(values[x])
+            }
+        }
+        return data
+    }
+    else if (date == undefined && iso != undefined){
+        for (var x = 0; x < values.length; x++) {
+            if (values[x].iso.toLowerCase() == iso.toLowerCase()) {
+                data.push(values[x])
+            }
+        }
+        return data
+    }
+    else if (date != undefined && iso != undefined){
+        for (var x = 0; x < values.length; x++) {
+            if (values[x].iso.toLowerCase() == iso.toLowerCase() && values[x].date == date) {
                 data.push(values[x])
             }
         }

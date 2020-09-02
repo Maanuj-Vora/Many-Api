@@ -123,6 +123,13 @@
             "methods": [
                 "GET"
             ]
+        },
+        {
+            "src": "/coronavirus/getCountry",
+            "dest": "/index.js",
+            "methods": [
+                "GET"
+            ]
         }
     ]
 }

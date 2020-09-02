@@ -102,6 +102,11 @@ app.get("/coronavirus/getISO", function (request, response) {
     const { iso } = request.query
     response.send(coronavirus.getISO(iso))
 });
+
+app.get("/coronavirus/getCountry", function (request, response) {
+    const { country } = request.query
+    response.send(coronavirus.getCountry(country))
+});
 /* Coronavirus Api End */
 
 const listener = app.listen(port, function () {

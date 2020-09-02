@@ -18,6 +18,10 @@ module.exports = {
 
     getISO: function (iso) {
         return getISOLocal(apiHelper.getValues('coronavirus'), iso)
+    },
+
+    getCountry: function (country) {
+        return getCountryLocal(apiHelper.getValues('coronavirus'), country)
     }
 };
 
@@ -32,6 +36,23 @@ function getISOLocal(values, iso) {
     }
     for (var x = 0; x < values.length; x++) {
         if (values[x].iso_code.toLowerCase() == iso.toLowerCase()) {
+            data.push(values[x])
+        }
+    }
+    return data
+}
+
+function getCountryLocal(values, location) {
+    data = []
+    if (location == undefined) {
+        for (var x = 0; x < values.length; x++) {
+            data.push(values[x].location)
+        }
+        dict = { "location": data.filter((x, y, z) => z.indexOf(x) === y) }
+        return dict
+    }
+    for (var x = 0; x < values.length; x++) {
+        if (values[x].location.toLowerCase() == location.toLowerCase()) {
             data.push(values[x])
         }
     }

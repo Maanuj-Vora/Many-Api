@@ -18,9 +18,9 @@ module.exports = {
         }
     },
     getRandom: function (account) {
-        return apiHelper.getRandomHelper(apiHelper.getValues(account + '_tweets'))
+        return apiHelper.getRandomHelper(apiHelper.getRawValues(account + '_tweets'))
     },
     getAmount: function (account, amount) {
-        return apiHelper.getAmountHelper(apiHelper.getValues(account + '_tweets'), amount)
+        return apiHelper.getAmountHelper(apiHelper.getRawValues(account + '_tweets'), amount)
     }
 };

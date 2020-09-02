@@ -1,8 +1,8 @@
 const getJsonScript = require('../jsonObj');
 const apiHelper = require('./apiHelper')
 
-// atlaObj = getJsonScript.getJsonObj('atlaQuote')
-// atlaValues = Object.values(atlaObj)
+jsonObj = getJsonScript.getJsonObj('atlaQuote')
+values = Object.values(jsonObj)
 
 module.exports = {
     getInfo: function(){
@@ -16,23 +16,15 @@ module.exports = {
         }
     },
     getAll: function () {
-        atlaObj = getJsonScript.getJsonObj('atlaQuote')
-        atlaValues = Object.values(atlaObj)
-        return apiHelper.getAllHelper(atlaValues)
+        return apiHelper.getAllHelper(values)
     },
     getRandom: function () {
-        atlaObj = getJsonScript.getJsonObj('atlaQuote')
-        atlaValues = Object.values(atlaObj)
-        return apiHelper.getRandomHelper(atlaValues)
+        return apiHelper.getRandomHelper(values)
     },
     getAmount: function (amount) {
-        atlaObj = getJsonScript.getJsonObj('atlaQuote')
-        atlaValues = Object.values(atlaObj)
-        return apiHelper.getAmountHelper(atlaValues, amount)
+        return apiHelper.getAmountHelper(values, amount)
     },
     getAuthor: function (author) {
-        atlaObj = getJsonScript.getJsonObj('atlaQuote')
-        atlaValues = Object.values(atlaObj)
-        return apiHelper.getAuthorHelper(atlaValues, author)
+        return apiHelper.getAuthorHelper(values, author)
     }
 };

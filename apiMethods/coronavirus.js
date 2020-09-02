@@ -13,7 +13,7 @@ module.exports = {
     },
 
     getAll: function () {
-        return apiHelper.getAllHelper(apiHelper.getValues('coronavirus'))
+        // return apiHelper.getAllHelper(apiHelper.getValues('coronavirus'))
     },
 
     getISO: function (iso) {

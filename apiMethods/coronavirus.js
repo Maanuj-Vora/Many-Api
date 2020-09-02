@@ -90,7 +90,7 @@ function getDataLocal(values, date, iso) {
     }
     else if (date == undefined && iso != undefined){
         for (var x = 0; x < values.length; x++) {
-            if ((values[x].iso) == iso.toUpperCase()) {
+            if ((values[x].iso_code) == iso.toUpperCase()) {
                 data.push(values[x])
             }
         }
@@ -98,7 +98,7 @@ function getDataLocal(values, date, iso) {
     }
     else if (date != undefined && iso != undefined){
         for (var x = 0; x < values.length; x++) {
-            if ((values[x].iso) == iso.toUpperCase() && values[x].date == date) {
+            if ((values[x].iso_code) == iso.toUpperCase() && values[x].date == date) {
                 data.push(values[x])
             }
         }

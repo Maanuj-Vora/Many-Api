@@ -86,7 +86,14 @@ app.get("/tweets/amount", function (request, response) {
 });
 /* Tweet Api End */
 
+/* Coronavirus Api Start */
+var coronavirus = require('./apiMethods/coronavirus');
 
+app.get("/getISO", function (request, response) {
+    const { iso } = request.query
+    response.send(coronavirus.getISO(iso))
+});
+/* Coronavirus Api End */
 
 const listener = app.listen(port, function () {
     console.log("Your app is listening on port " + listener.address().port);

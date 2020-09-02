@@ -3,5 +3,6 @@
     "jsonPath": "data/json/",
     "atlaQuote": "atla-quotes",
     "jokes": "jokes",
+    "coronavirus": "coronavirus",
     "twitterHandles": ["realDonaldTrump"]
 }

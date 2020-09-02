@@ -102,6 +102,13 @@
             "methods": [
                 "GET"
             ]
+        },
+        {
+            "src": "/coronavirus/getISO",
+            "dest": "/index.js",
+            "methods": [
+                "GET"
+            ]
         }
     ]
 }

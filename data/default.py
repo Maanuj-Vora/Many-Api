@@ -1,5 +1,7 @@
+import time
 import json
 import traceback
+import timeago as timesince
 
 from collections import namedtuple
 from io import BytesIO
@@ -41,20 +43,3 @@ def responsible(target, reason):
     if reason is None:
         return f"{responsible} no reason given..."
     return f"{responsible} {reason}"
-
-
-async def prettyResults(ctx, filename: str = "Results", resultmsg: str = "Here's the results:", loop=None):
-    if not loop:
-        return await ctx.send("The result was empty...")
-
-    pretty = "\r\n".join(
-        [f"[{str(num).zfill(2)}] {data}" for num, data in enumerate(loop, start=1)])
-
-    if len(loop) < 15:
-        return await ctx.send(f"{resultmsg}```ini\n{pretty}```")
-
-    data = BytesIO(pretty.encode('utf-8'))
-    await ctx.send(
-        content=resultmsg,
-        file=discord.File(data, filename=timetext(filename.title()))
-    )

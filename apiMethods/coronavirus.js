@@ -6,10 +6,16 @@ module.exports = {
     getInfo: function(){
         return {
             "info": "Welcome to the Coronavirus Api, the possible paths include",
+            "all": "thispage/all",
             "iso_code": "thisPage/iso_code?iso={iso code}",
             "Thank you": "Thank you for using our api!"
         }
     },
+
+    getAll: function () {
+        return apiHelper.getAllHelper(apiHelper.getValues('coronavirus'))
+    },
+
     getISO: function (iso) {
         return getISOLocal(apiHelper.getValues('coronavirus'), iso)
     }

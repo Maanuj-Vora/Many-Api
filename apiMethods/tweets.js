@@ -18,13 +18,9 @@ module.exports = {
         }
     },
     getRandom: function (account) {
-        jsonObj = getJsonScript.getJsonObjRaw(account + '_tweets')
-        values = Object.values(jsonObj)
-        return apiHelper.getRandomHelper(values)
+        return apiHelper.getRandomHelper(apiHelper.getValues(account + '_tweets'))
     },
     getAmount: function (account, amount) {
-        jsonObj = getJsonScript.getJsonObjRaw(account + '_tweets')
-        values = Object.values(jsonObj)
-        return apiHelper.getAmountHelper(values, amount)
+        return apiHelper.getAmountHelper(apiHelper.getValues(account + '_tweets'), amount)
     }
 };

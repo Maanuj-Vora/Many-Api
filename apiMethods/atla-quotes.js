@@ -14,21 +14,15 @@ module.exports = {
         }
     },
     getAll: function () {
-        return apiHelper.getAllHelper(getValues())
+        return apiHelper.getAllHelper(apiHelper.getValues('atlaQuote'))
     },
     getRandom: function () {
-        return apiHelper.getRandomHelper(getValues())
+        return apiHelper.getRandomHelper(apiHelper.getValues('atlaQuote'))
     },
     getAmount: function (amount) {
-        return apiHelper.getAmountHelper(getValues(), amount)
+        return apiHelper.getAmountHelper(apiHelper.getValues('atlaQuote'), amount)
     },
     getAuthor: function (author) {
-        return apiHelper.getAuthorHelper(getValues(), author)
+        return apiHelper.getAuthorHelper(apiHelper.getValues('atlaQuote'), author)
     }
 };
-
-function getValues(){
-    jsonObj = getJsonScript.getJsonObj('atlaQuote')
-    values = Object.values(jsonObj)
-    return values
-}

@@ -8,6 +8,7 @@ module.exports = {
             "info": "Welcome to the Coronavirus Api, the possible paths include",
             "all": "thispage/all",
             "iso_code": "thisPage/iso_code?iso={iso code}",
+            "getData": "thisPage/getData?date={YYYY-MM-DD}&iso={iso code}\nPlease note you can keep either one of them blank, if you just do 'thisPage/getData' you will get today's data for all countries",
             "Thank you": "Thank you for using our api!"
         }
     },

@@ -1,8 +1,8 @@
 const getJsonScript = require('../jsonObj');
 const apiHelper = require('./apiHelper')
 
-jsonObj = getJsonScript.getJsonObj('jokes')
-values = Object.values(jsonObj)
+// jsonObj = getJsonScript.getJsonObj('jokes')
+// values = Object.values(jsonObj)
 
 module.exports = {
     getInfo: function(){
@@ -14,9 +14,13 @@ module.exports = {
         }
     },
     getRandom: function () {
+        jsonObj = getJsonScript.getJsonObj('jokes')
+        values = Object.values(jsonObj)
         return apiHelper.getRandomHelper(values)
     },
     getAmount: function (amount) {
+        jsonObj = getJsonScript.getJsonObj('jokes')
+        values = Object.values(jsonObj)
         return apiHelper.getAmountHelper(values, amount)
     }
 };

@@ -104,6 +104,13 @@
             ]
         },
         {
+            "src": "/coronavirus",
+            "dest": "/index.js",
+            "methods": [
+                "GET"
+            ]
+        },
+        {
             "src": "/coronavirus/all",
             "dest": "/index.js",
             "methods": [

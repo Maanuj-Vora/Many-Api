@@ -89,9 +89,13 @@ app.get("/tweets/amount", function (request, response) {
 /* Coronavirus Api Start */
 var coronavirus = require('./apiMethods/coronavirus');
 
+app.get("/coronavirus", function (request, response) {
+    response.send(coronavirus.getInfo())
+});
+
 app.get("/coronavirus/all", function (request, response) {
-    // response.send(coronavirus.getAll())
-    return {"status": "Currently Not Available"}
+    response.send(coronavirus.getAll())
+    // return {"status": "Currently Not Available"}
 });
 
 app.get("/coronavirus/getISO", function (request, response) {

@@ -1,10 +1,8 @@
 const getJsonScript = require('../jsonObj');
 const apiHelper = require('./apiHelper')
 
-jsonObj = getJsonScript.getJsonObj('atlaQuote')
-values = Object.values(jsonObj)
-
 module.exports = {
+
     getInfo: function(){
         return {
             "info": "Welcome to the Avatar the Last Airbender Api, the possible paths include",
@@ -16,15 +14,21 @@ module.exports = {
         }
     },
     getAll: function () {
-        return apiHelper.getAllHelper(values)
+        return apiHelper.getAllHelper(getValues())
     },
     getRandom: function () {
-        return apiHelper.getRandomHelper(values)
+        return apiHelper.getRandomHelper(getValues())
     },
     getAmount: function (amount) {
-        return apiHelper.getAmountHelper(values, amount)
+        return apiHelper.getAmountHelper(getValues(), amount)
     },
     getAuthor: function (author) {
-        return apiHelper.getAuthorHelper(values, author)
+        return apiHelper.getAuthorHelper(getValues(), author)
     }
 };
+
+function getValues(){
+    jsonObj = getJsonScript.getJsonObj('atlaQuote')
+    values = Object.values(jsonObj)
+    return values
+}

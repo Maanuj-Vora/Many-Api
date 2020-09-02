@@ -89,7 +89,7 @@ app.get("/tweets/amount", function (request, response) {
 /* Coronavirus Api Start */
 var coronavirus = require('./apiMethods/coronavirus');
 
-app.get("/getISO", function (request, response) {
+app.get("/coronavirus/getISO", function (request, response) {
     const { iso } = request.query
     response.send(coronavirus.getISO(iso))
 });

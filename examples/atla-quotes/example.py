@@ -33,8 +33,8 @@ def getSpecificAuthor(author):
     return json
 
 
-print(getAll())
-print(getRandom())
-print(getAmount(10))
-print(getAuthors())
-print(getSpecificAuthor('iroh'))
+# print(getAll())
+# print(getRandom())
+# print(getAmount(10))
+# print(getAuthors())
+# print(getSpecificAuthor('iroh'))

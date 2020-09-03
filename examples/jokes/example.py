@@ -15,6 +15,5 @@ def getAmount(amount):
     return json
 
 
-print(getRandom())
-print(getAmount(10))
-
+# print(getRandom())
+# print(getAmount(10))

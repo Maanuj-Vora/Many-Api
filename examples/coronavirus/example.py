@@ -20,7 +20,21 @@ def getCurrentData():
     json = response.json()
     return json
 
+def getDateData(date):
+    # Date should be in format 'YYYY-MM-DD'
+    response = requests.get(f'{baseUrl}/getData?date={date}')
+    json = response.json()
+    return json
 
-print(getAll())
-print(getISO('USA'))
-print(getCurrentData())
+def getISOCurrentData(date):
+    # Date should be in format 'YYYY-MM-DD'
+    response = requests.get(f'{baseUrl}/getData?iso={date}')
+    json = response.json()
+    return json
+
+
+# print(getAll())
+# print(getISO('USA'))
+# print(getCurrentData())
+# print(getDateData('2020-06-30'))
+

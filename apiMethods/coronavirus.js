@@ -65,18 +65,23 @@ function getCountryLocal(values, location) {
     return data
 }
 
+function getTodayDate() {
+    d = new Date();
+    utc = d.getTime() + (d.getTimezoneOffset() * 60000);
+    var today = new Date(utc + (3600000 * '-8'));
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0');
+    var yyyy = today.getFullYear();
+    today = yyyy + '-' + mm + '-' + dd;
+    return today
+}
+
 function getDataLocal(values, date, iso) {
 
     data = []
 
     if (date == undefined && iso == undefined) {
-        d = new Date();
-        utc = d.getTime() + (d.getTimezoneOffset() * 60000);
-        var today = new Date(utc + (3600000*'-8'));
-        var dd = String(today.getDate()).padStart(2, '0');
-        var mm = String(today.getMonth() + 1).padStart(2, '0');
-        var yyyy = today.getFullYear();
-        today = yyyy + '-' + mm + '-' + dd;
+        today = getTodayDate()
         for (var x = 0; x < values.length; x++) {
             if (values[x].date == today) {
                 data.push(values[x])
@@ -93,8 +98,9 @@ function getDataLocal(values, date, iso) {
         return data
     }
     else if (date == undefined && iso != undefined) {
+        today = getTodayDate()
         for (var x = 0; x < values.length; x++) {
-            if ((values[x].iso_code) == iso.toUpperCase()) {
+            if (values[x].date == today && (values[x].iso_code) == iso.toUpperCase()) {
                 data.push(values[x])
             }
         }

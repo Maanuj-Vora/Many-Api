@@ -15,7 +15,7 @@ with requests.Session() as s:
     cr = csv.reader(decodedContent.splitlines(), delimiter=',')
     listForm = list(cr)
     index = 0
-    with open(f'{csvFilePath}coronavirus.csv', 'a', encoding='utf-8') as csvFile:
+    with open(f'{csvFilePath}coronavirus.csv', 'w', encoding='utf-8') as csvFile:
         writer = csv.writer(csvFile, delimiter='|')
         writer.writerows(listForm)
 

@@ -16,7 +16,7 @@ app.get("/", (req, res) => {
         "about": "This api has been created by Maanuj Vora",
         "link": "Visit here to get more up to speed https://github.com/Maanuj-Vora/Many-Api",
         "possible paths": [
-            '/atla-quotes', '/jokes', '/tweets'
+            '/atla-quotes', '/jokes', '/tweets', '/coronavirus'
         ],
         "notes": "If you add an extra frontslash in the end, the api will not be functionable",
         "documentation": "Documentation coming soon"

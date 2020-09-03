@@ -71,6 +71,7 @@ function getDataLocal(values, date, iso) {
 
     if (date == undefined && iso == undefined) {
         var today = new Date();
+        today = WallTime.UTCToWallTime(today, "America/Los_Angeles");
         var dd = String(today.getDate()).padStart(2, '0');
         var mm = String(today.getMonth() + 1).padStart(2, '0');
         var yyyy = today.getFullYear();
@@ -80,7 +81,7 @@ function getDataLocal(values, date, iso) {
                 data.push(values[x])
             }
         }
-        return {'time': today}
+        return {"date": today}
     }
     else if (date != undefined && iso == undefined) {
         for (var x = 0; x < values.length; x++) {

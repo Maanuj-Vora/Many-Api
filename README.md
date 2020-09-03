@@ -15,6 +15,7 @@ Currently it has
 - [x] ATLA Quotes
 - [x] Jokes
 - [x] Donald Trump Tweets from 8/12/20
+- [x] Coronavirus Data from [https://ourworldindata.org/coronavirus](Our World in Data)
 
 We are always looking to add more api's!
 

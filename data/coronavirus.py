@@ -12,6 +12,7 @@ with requests.Session() as s:
     decodedContent = download.content.decode('utf-8')
     cr = csv.reader(decodedContent.splitlines(), delimiter=',')
     listForm = list(cr)
+    index = 0
     with open(f'{csvFilePath}coronavirus.csv', 'a', encoding='utf-8') as csvFile:
         writer = csv.writer(csvFile, delimiter='|')
         writer.writerows(listForm)

@@ -3,7 +3,7 @@ const apiHelper = require('./apiHelper')
 
 module.exports = {
 
-    getInfo: function(){
+    getInfo: function () {
         return {
             "info": "Welcome to the Avatar the Last Airbender Api, the possible paths include",
             "random": "thisPage/random",

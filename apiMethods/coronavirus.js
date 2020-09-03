@@ -3,12 +3,13 @@ const apiHelper = require('./apiHelper')
 
 module.exports = {
 
-    getInfo: function(){
+    getInfo: function () {
         return {
             "info": "Welcome to the Coronavirus Api, the possible paths include",
             "all": "thispage/all",
-            "iso_code": "thisPage/iso_code?iso={iso code}",
-            "getData": "thisPage/getData?date={YYYY-MM-DD}&iso={iso code}\nPlease note you can keep either one of them blank, if you just do 'thisPage/getData' you will get today's data for all countries",
+            "get by iso code": "thisPage/getISO?iso={iso code}",
+            "all ISO Codes": "https://many-api.vercel.app/coronavirus/getISO",
+            "get data": "thisPage/getData?date={YYYY-MM-DD}&iso={iso code}\nPlease note you can keep either one of them blank, if you just do 'thisPage/getData' you will get today's data for all countries",
             "Thank you": "Thank you for using our api!"
         }
     },
@@ -68,8 +69,8 @@ function getDataLocal(values, date, iso) {
 
     data = []
 
-    if (date == undefined && iso == undefined){
-        var today = new Date();
+    if (date == undefined && iso == undefined) {
+        var today = new Date().toLocaleString("en-US", {timeZone: "America/New_York"});
         var dd = String(today.getDate()).padStart(2, '0');
         var mm = String(today.getMonth() + 1).padStart(2, '0');
         var yyyy = today.getFullYear();
@@ -81,7 +82,7 @@ function getDataLocal(values, date, iso) {
         }
         return data
     }
-    else if (date != undefined && iso == undefined){
+    else if (date != undefined && iso == undefined) {
         for (var x = 0; x < values.length; x++) {
             if (values[x].date == date) {
                 data.push(values[x])
@@ -89,7 +90,7 @@ function getDataLocal(values, date, iso) {
         }
         return data
     }
-    else if (date == undefined && iso != undefined){
+    else if (date == undefined && iso != undefined) {
         for (var x = 0; x < values.length; x++) {
             if ((values[x].iso_code) == iso.toUpperCase()) {
                 data.push(values[x])
@@ -97,7 +98,7 @@ function getDataLocal(values, date, iso) {
         }
         return data
     }
-    else if (date != undefined && iso != undefined){
+    else if (date != undefined && iso != undefined) {
         for (var x = 0; x < values.length; x++) {
             if ((values[x].iso_code) == iso.toUpperCase() && values[x].date == date) {
                 data.push(values[x])

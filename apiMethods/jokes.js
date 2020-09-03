@@ -2,7 +2,7 @@ const getJsonScript = require('../jsonObj');
 const apiHelper = require('./apiHelper')
 
 module.exports = {
-    getInfo: function(){
+    getInfo: function () {
         return {
             "info": "Welcome to the Jokes Api, the possible paths include",
             "random": "thisPage/random",

@@ -95,7 +95,7 @@ app.get("/coronavirus", function (request, response) {
 
 app.get("/coronavirus/all", function (request, response) {
     // response.send(coronavirus.getAll())
-    response.send({"status": "Currently Not Available"})
+    response.send({ "status": "Currently Not Available" })
 });
 
 app.get("/coronavirus/getData", function (request, response) {

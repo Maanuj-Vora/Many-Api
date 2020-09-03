@@ -9,12 +9,6 @@
 
 ---
 
-Api Status
-
-![Website](https://img.shields.io/website?label=Coronavirus%20Api&style=flat-square&url=https%3A%2F%2Fmany-api.vercel.app%2Fcoronavirus%2FgetData)
-
----
-
 ## What is this?
 Many-Api is essentially a gathering of multiple RESTful Api's which can be used by all.
 

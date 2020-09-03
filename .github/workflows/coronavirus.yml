@@ -1,13 +1,8 @@
 name: The Bear Wears A Mask
 
 on:
-  # push:
-  #   branches:
-  #     - master
-  #   paths:
-  #     - "data/twitter.py"
   schedule:
-    - cron: "0 7 * * *"
+    - cron: "0 */6 * * *"
 
 jobs:
   build:

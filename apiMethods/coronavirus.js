@@ -83,8 +83,8 @@ function getDataLocal(values, date, iso) {
     if (date == undefined && iso == undefined) {
         today = getTodayDate()
         for (var x = 0; x < values.length; x++) {
-            if (values[x].date == today) {
-                data.push(values[x])
+            if (values[x][values[x].length - 1].date == today) {
+                data.push(values[x][values[x].length - 1])
             }
         }
         return data

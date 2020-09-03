@@ -24,3 +24,14 @@ with requests.Session() as s:
     decodedContent = download.content.decode('utf-8')
     with open(f"{jsonFilePath}coronavirus.json", "w") as jFile:
         jFile.write(decodedContent)
+
+with open(f"{jsonFilePath}coronavirus.json") as json_file:
+    data = json.load(json_file)
+
+keyso = data.keys()
+index = 0
+for key in keyso:
+    (data[key])['iso_code'] = key
+    index += 1
+with open(f"{jsonFilePath}coronavirus.json", "w") as jFile:
+    json.dump(data, jFile)

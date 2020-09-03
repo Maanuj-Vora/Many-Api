@@ -15,7 +15,7 @@ module.exports = {
     },
 
     getAll: function () {
-        // return apiHelper.getAllHelper(apiHelper.getValues('coronavirus'))
+        return apiHelper.getAllHelper(apiHelper.getValues('coronavirus'))
     },
 
     getData: function (date, iso) {
@@ -81,35 +81,55 @@ function getDataLocal(values, date, iso) {
     data = []
 
     if (date == undefined && iso == undefined) {
-        today = getTodayDate()
+        // today = getTodayDate()
+        // console.log(values)
         for (var x = 0; x < values.length; x++) {
-            if (values[x][values[x].length - 1].date == today) {
-                data.push(values[x][values[x].length - 1])
-            }
+            // if ((values[x].data)[values[x].length - 1].date == today) {
+            dictio = (values[x].data)[(values[x].data).length - 1]
+            // key = Object.keys(values)
+            // dictio.iso_code=key[key.length-1]
+            // dictio.put('location', values[x].location)
+            dictio.iso_code = values[x].iso_code
+            data.push(dictio)
+            // }
         }
         return data
     }
     else if (date != undefined && iso == undefined) {
         for (var x = 0; x < values.length; x++) {
-            if (values[x].date == date) {
-                data.push(values[x])
+            for (var y = 0; y < values[x].data.length; y++) {
+                if ((values[x].data)[y].date == date) {
+                    dictio = (values[x].data)[y]
+                    dictio.iso_code = values[x].iso_code
+                    data.push(dictio)
+                    break
+                }
             }
         }
         return data
     }
     else if (date == undefined && iso != undefined) {
-        today = getTodayDate()
+        // today = getTodayDate()
         for (var x = 0; x < values.length; x++) {
-            if (values[x].date == today && (values[x].iso_code) == iso.toUpperCase()) {
-                data.push(values[x])
+            if ((values[x].iso_code) == iso.toUpperCase()) {
+                dictio = (values[x].data)[(values[x].data).length - 1]
+                dictio.iso_code = values[x].iso_code
+                data.push(dictio)
+                break
+
             }
         }
         return data
     }
     else if (date != undefined && iso != undefined) {
         for (var x = 0; x < values.length; x++) {
-            if ((values[x].iso_code) == iso.toUpperCase() && values[x].date == date) {
-                data.push(values[x])
+            for (var y = 0; y < values[x].data.length; y++) {
+                if ((values[x].iso_code) == iso.toUpperCase() && (values[x].data)[y].date == date) {
+                    dictio = (values[x].data)[y]
+                    dictio.iso_code = values[x].iso_code
+                    data.push(dictio)
+                    break
+                }
             }
         }
         return data

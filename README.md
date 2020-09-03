@@ -6,6 +6,13 @@
 ![Website](https://img.shields.io/website?down_color=red&down_message=Api%20Is%20Offline&style=for-the-badge&up_message=Api%20Is%20Online&url=https%3A%2F%2Fmany-api.vercel.app%2F)
 [![GitHub issues](https://img.shields.io/github/issues/Maanuj-Vora/Many-Api?style=for-the-badge)](https://github.com/Maanuj-Vora/Many-Api/issues)
 
+
+---
+
+Api Status
+
+![Coronavirus Api](https://img.shields.io/website?style=flat-square&url=https%3A%2F%2Fmany-api.vercel.app%2Fcoronavirus%2FgetData)
+
 ---
 
 ## What is this?

@@ -70,8 +70,9 @@ function getDataLocal(values, date, iso) {
     data = []
 
     if (date == undefined && iso == undefined) {
-        var today = new Date();
-        today = WallTime.UTCToWallTime(today, "America/Los_Angeles");
+        d = new Date();
+        utc = d.getTime() + (d.getTimezoneOffset() * 60000);
+        var today = new Date(utc + (3600000*'-8'));
         var dd = String(today.getDate()).padStart(2, '0');
         var mm = String(today.getMonth() + 1).padStart(2, '0');
         var yyyy = today.getFullYear();

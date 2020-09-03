@@ -3,11 +3,13 @@ const app = express();
 
 const port = 5000;
 
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({
+    extended: false
+}));
 
 app.listen(process.env.PORT, () => {
     console.log(`Server is booming on port 5000
-Visit http://localhost:`+ listener.address().port);
+Visit http://localhost:` + listener.address().port);
 });
 
 app.get("/", (req, res) => {
@@ -39,12 +41,16 @@ app.get("/atla-quote/random", function (request, response) {
 });
 
 app.get("/atla-quote/amount", function (request, response) {
-    const { amount } = request.query
+    const {
+        amount
+    } = request.query
     response.send(atlaQuotes.getAmount(amount))
 });
 
 app.get("/atla-quote/author", function (request, response) {
-    const { author } = request.query
+    const {
+        author
+    } = request.query
     response.send(atlaQuotes.getAuthor(author))
 });
 /* Avatar The Last Airbender Api End */
@@ -62,7 +68,9 @@ app.get("/jokes/random", function (request, response) {
 });
 
 app.get("/jokes/amount", function (request, response) {
-    const { amount } = request.query
+    const {
+        amount
+    } = request.query
     response.send(jokes.getAmount(amount))
 });
 /* Jokes Api End */
@@ -75,13 +83,19 @@ app.get("/tweets", function (request, response) {
 });
 
 app.get("/tweets/random", function (request, response) {
-    const { account } = request.query
+    const {
+        account
+    } = request.query
     response.send(tweet.getRandom(account))
 });
 
 app.get("/tweets/amount", function (request, response) {
-    const { amount } = request.query
-    const { account } = request.query
+    const {
+        amount
+    } = request.query
+    const {
+        account
+    } = request.query
     response.send(tweet.getAmount(account, amount))
 });
 /* Tweet Api End */
@@ -95,22 +109,32 @@ app.get("/coronavirus", function (request, response) {
 
 app.get("/coronavirus/all", function (request, response) {
     // response.send(coronavirus.getAll())
-    response.send({ "status": "Currently Not Available" })
+    response.send({
+        "status": "Currently Not Available"
+    })
 });
 
 app.get("/coronavirus/getData", function (request, response) {
-    const { date } = request.query
-    const { iso } = request.query
+    const {
+        date
+    } = request.query
+    const {
+        iso
+    } = request.query
     response.send(coronavirus.getData(date, iso))
 });
 
 app.get("/coronavirus/getISO", function (request, response) {
-    const { iso } = request.query
+    const {
+        iso
+    } = request.query
     response.send(coronavirus.getISO(iso))
 });
 
 app.get("/coronavirus/getCountry", function (request, response) {
-    const { country } = request.query
+    const {
+        country
+    } = request.query
     response.send(coronavirus.getCountry(country))
 });
 /* Coronavirus Api End */

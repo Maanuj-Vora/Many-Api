@@ -1,6 +1,7 @@
 {
     "csvPath": "data/csv/",
     "jsonPath": "data/json/",
+    "noConversion": ["coronavirus.csv"],
     "atlaQuote": "atla-quotes",
     "jokes": "jokes",
     "coronavirus": "coronavirus",

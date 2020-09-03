@@ -13,13 +13,10 @@ jsonList = []
 
 csvFilePath = default.get("apiMethods/data.json").csvPath
 jsonFilePath = default.get("apiMethods/data.json").jsonPath
+noConversion = list(default.get("apiMethods/data.json").noConversion)
 
 for file in os.listdir(csvFilePath):
-    if file.endswith(".csv"):
-        # df = pd.read_csv(f"{csvFilePath}{str(file)}", sep=",")
-        # df.drop_duplicates(inplace=True)
-        # df.to_csv(f"{csvFilePath}{str(file)}", index=False)
-
+    if file.endswith(".csv") and not noConversion.__contains__(file):
         csvList.append(f"{csvFilePath}{str(file)}")
         jsonList.append(f"{jsonFilePath}{str(file[:-4])}.json")
 
@@ -32,13 +29,6 @@ while index < len(csvList):
         for item in csvReader:
             data[str(lineIndex)] = item
             lineIndex += 1
-
-    # os.mknod(jsonList[index])
-
-    # # try:
-    # #     f = open(jsonList[index], "w")
-    # # except Exception as e:
-    # #     f = open(jsonList[index], "x")
 
     file = open(f'{jsonList[index]}', "w+")
 

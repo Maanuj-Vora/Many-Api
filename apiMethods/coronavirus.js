@@ -35,7 +35,7 @@ function getISOLocal(values, iso) {
     data = []
     if (iso == undefined) {
         for (var x = 0; x < values.length; x++) {
-            data.push([values[x].iso_code, values[x].location])
+            data.push({"iso": values[x].iso_code, "location": values[x].location})
         }
         dict = { "iso_code": data.filter((x, y, z) => z.indexOf(x) === y) }
         return dict

@@ -20,7 +20,6 @@ app.get("/", (req, res) => {
         "possible paths": [
             '/atla-quote', '/jokes', '/tweets', '/coronavirus', '/marvel-quote'
         ],
-        "notes": "If you add an extra slash in the end, the api will not be functionable",
         "documentation": "Documentation coming soon"
     });
 });

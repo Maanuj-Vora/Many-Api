@@ -35,11 +35,6 @@
             "continue": true
         },
         {
-            "src": "/(.*)",
-            "status": 404,
-            "dest": "/static/404.html"
-        },
-        {
             "src": "/",
             "dest": "/index.js",
             "methods": [

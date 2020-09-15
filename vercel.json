@@ -180,6 +180,11 @@
             "methods": [
                 "GET"
             ]
+        },
+        {
+            "src": "/(.*)",
+            "status": 404,
+            "dest": "/static/404.html"
         }
     ]
 }

@@ -1,0 +1,185 @@
+{
+    "version": 2,
+    "builds": [
+        {
+            "src": "/index.js",
+            "use": "@now/node-server"
+        },
+        {
+            "src": "/apiMethods/**",
+            "use": "@now/static"
+        },
+        {
+            "src": "/data/**",
+            "use": "@now/static"
+        },
+        {
+            "src": "/static/**",
+            "use": "@now/static"
+        }
+    ],
+    "routes": [
+        {
+            "src": ".*",
+            "methods": [
+                "GET",
+                "POST",
+                "OPTIONS"
+            ],
+            "headers": {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+                "Access-Control-Allow-Credentials": "true"
+            },
+            "dest": "index.js",
+            "continue": true
+        },
+        {
+            "src": "/",
+            "dest": "/index.js",
+            "methods": [
+                "GET"
+            ]
+        },
+        {
+            "src": "/atla-quote",
+            "dest": "/index.js",
+            "methods": [
+                "GET"
+            ]
+        },
+        {
+            "src": "/atla-quote/all",
+            "dest": "/index.js",
+            "methods": [
+                "GET"
+            ]
+        },
+        {
+            "src": "/atla-quote/random",
+            "dest": "/index.js",
+            "methods": [
+                "GET"
+            ]
+        },
+        {
+            "src": "/atla-quote/amount",
+            "dest": "/index.js",
+            "methods": [
+                "GET"
+            ]
+        },
+        {
+            "src": "/atla-quote/author",
+            "dest": "/index.js",
+            "methods": [
+                "GET"
+            ]
+        },
+        {
+            "src": "/jokes",
+            "dest": "/index.js",
+            "methods": [
+                "GET"
+            ]
+        },
+        {
+            "src": "/jokes/random",
+            "dest": "/index.js",
+            "methods": [
+                "GET"
+            ]
+        },
+        {
+            "src": "/jokes/amount",
+            "dest": "/index.js",
+            "methods": [
+                "GET"
+            ]
+        },
+        {
+            "src": "/tweets",
+            "dest": "/index.js",
+            "methods": [
+                "GET"
+            ]
+        },
+        {
+            "src": "/tweets/random",
+            "dest": "/index.js",
+            "methods": [
+                "GET"
+            ]
+        },
+        {
+            "src": "/tweets/amount",
+            "dest": "/index.js",
+            "methods": [
+                "GET"
+            ]
+        },
+        {
+            "src": "/coronavirus",
+            "dest": "/index.js",
+            "methods": [
+                "GET"
+            ]
+        },
+        {
+            "src": "/coronavirus/all",
+            "dest": "/index.js",
+            "methods": [
+                "GET"
+            ]
+        },
+        {
+            "src": "/coronavirus/getData",
+            "dest": "/index.js",
+            "methods": [
+                "GET"
+            ]
+        },
+        {
+            "src": "/coronavirus/getISO",
+            "dest": "/index.js",
+            "methods": [
+                "GET"
+            ]
+        },
+        {
+            "src": "/coronavirus/getCountry",
+            "dest": "/index.js",
+            "methods": [
+                "GET"
+            ]
+        },
+        {
+            "src": "/marvel-quote",
+            "dest": "/index.js",
+            "methods": [
+                "GET"
+            ]
+        },
+        {
+            "src": "/marvel-quote/all",
+            "dest": "/index.js",
+            "methods": [
+                "GET"
+            ]
+        },
+        {
+            "src": "/marvel-quote/random",
+            "dest": "/index.js",
+            "methods": [
+                "GET"
+            ]
+        },
+        {
+            "src": "/marvel-quote/amount",
+            "dest": "/index.js",
+            "methods": [
+                "GET"
+            ]
+        }
+    ]
+}

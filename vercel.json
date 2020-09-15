@@ -33,7 +33,16 @@
             },
             "dest": "index.js",
             "continue": true,
-            "trailingSlash": false
+            "trailingSlash": false,
+            "cleanUrls": true
+        },
+        {
+            "handle": "filesystem"
+        },
+        {
+            "src": "/(.*)",
+            "status": 404,
+            "dest": "/404.html"
         }
     ]
 }

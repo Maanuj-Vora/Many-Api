@@ -139,6 +139,29 @@ app.get("/coronavirus/getCountry", function (request, response) {
 });
 /* Coronavirus Api End */
 
+/* Marvel Quotes Api Start */
+var marvelQuotes = require('./apiMethods/marvel-quotes');
+
+app.get("/marvel-quote", function (request, response) {
+    response.send(marvelQuotes.getInfo())
+});
+
+app.get("/marvel-quote/all", function (request, response) {
+    response.send(marvelQuotes.getAll())
+});
+
+app.get("/marvel-quote/random", function (request, response) {
+    response.send(marvelQuotes.getRandom())
+});
+
+app.get("/marvel-quote/amount", function (request, response) {
+    const {
+        amount
+    } = request.query
+    response.send(marvelQuotes.getAmount(amount))
+});
+/* Marvel Quotes Api End */
+
 const listener = app.listen(port, function () {
     console.log("Your app is listening on port " + listener.address().port);
 });

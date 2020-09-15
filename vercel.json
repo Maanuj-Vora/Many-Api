@@ -1,6 +1,7 @@
 {
     "version": 2,
-    "builds": [{
+    "builds": [
+        {
             "src": "/index.js",
             "use": "@now/node-server"
         },
@@ -17,9 +18,14 @@
             "use": "@now/static"
         }
     ],
-    "routes": [{
+    "routes": [
+        {
             "src": ".*",
-            "methods": ["GET", "POST", "OPTIONS"],
+            "methods": [
+                "GET",
+                "POST",
+                "OPTIONS"
+            ],
             "headers": {
                 "Access-Control-Allow-Origin": "*",
                 "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
@@ -27,7 +33,8 @@
             },
             "dest": "index.js",
             "continue": true
-        }, {
+        },
+        {
             "src": "/",
             "dest": "/index.js",
             "methods": [
@@ -141,6 +148,34 @@
         },
         {
             "src": "/coronavirus/getCountry",
+            "dest": "/index.js",
+            "methods": [
+                "GET"
+            ]
+        },
+        {
+            "src": "/marvel-quote",
+            "dest": "/index.js",
+            "methods": [
+                "GET"
+            ]
+        },
+        {
+            "src": "/marvel-quote/all",
+            "dest": "/index.js",
+            "methods": [
+                "GET"
+            ]
+        },
+        {
+            "src": "/marvel-quote/random",
+            "dest": "/index.js",
+            "methods": [
+                "GET"
+            ]
+        },
+        {
+            "src": "/marvel-quote/amount",
             "dest": "/index.js",
             "methods": [
                 "GET"

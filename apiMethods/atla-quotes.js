@@ -5,7 +5,7 @@ module.exports = {
 
     getInfo: function () {
         return {
-            "info": "Welcome to the Avatar the Last Airbender Api, the possible paths include",
+            "info": "Welcome to the Avatar the Last Airbender Quote Api, the possible paths include",
             "random": "thisPage/random",
             "x amount of quotes": "thisPage/amount?amount={number of quotes wanted}",
             "list of authors": "thisPage/author",
@@ -23,6 +23,23 @@ module.exports = {
         return apiHelper.getAmountHelper(apiHelper.getValues('atlaQuote'), amount)
     },
     getAuthor: function (author) {
-        return apiHelper.getAuthorHelper(apiHelper.getValues('atlaQuote'), author)
+        return getAuthorHelper(apiHelper.getValues('atlaQuote'), author)
     }
 };
+
+function getAuthorHelper(values, author) {
+    data = []
+    if (author == undefined) {
+        for (var x = 0; x < values.length; x++) {
+            data.push(values[x].author)
+        }
+        dict = { "authors": data.filter((x, y, z) => z.indexOf(x) === y) }
+        return dict
+    }
+    for (var x = 0; x < values.length; x++) {
+        if (values[x].author.toLowerCase() == author.toLowerCase()) {
+            data.push(values[x])
+        }
+    }
+    return data
+}

@@ -12,6 +12,8 @@
 ## What is this?
 Many-Api is essentially a gathering of multiple RESTful Api's which can be used by all.
 
+For some examples, check out the implementation branch!
+
 Currently it has
 - [x] ATLA Quotes
 - [x] Jokes

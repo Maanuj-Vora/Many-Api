@@ -16,7 +16,7 @@ jobs:
           python-version: "3.x"
           architecture: "x64"
       - name: Get lxml
-      - run: |
+        run: |
           sudo apt-get install libxml2-dev libxslt-dev python-dev
       - name: Install dependencies
         run: |

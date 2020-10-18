@@ -1,6 +1,7 @@
 name: A Good Bear Wears A Mask
 
-on: push
+on:
+  [push]
   # schedule:
   #   - cron: "0 0,6,12,18 * * *"
 
@@ -15,7 +16,8 @@ jobs:
           python-version: "3.x"
           architecture: "x64"
       - name: Get lxml
-      - run: sudo apt-get install libxml2-dev libxslt-dev python-dev
+      - run: |
+          sudo apt-get install libxml2-dev libxslt-dev python-dev
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip

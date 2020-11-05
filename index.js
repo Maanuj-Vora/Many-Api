@@ -137,7 +137,7 @@ app.get("/coronavirus/getCountry", function (request, response) {
     response.send(coronavirus.getCountry(country))
 });
 
-app.get("coronavirus/image", function (request, response) {
+app.get("/coronavirus/image", function (request, response) {
     const {
         iso
     } = request.query

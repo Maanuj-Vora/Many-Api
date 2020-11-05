@@ -44,6 +44,12 @@ for(iso in iso_codes){
            x = "Month", y = "New Cases")
 #  print(newCases)
   
+  newCaseSmooth <- ggplot(data = currentIso, aes(x = date, y = new_cases_smoothed)) +
+    geom_line() + theme_ipsum() +
+    labs(title = sprintf("New Cases of COVID-19 in %s", currentIso$location),
+         x = "Month", y = "New Cases")
+#  print(newCaseSmooth)
+  
   totalDeaths <- ggplot(data = currentIso, aes(x = date, y = total_deaths)) +
       geom_line() + theme_ipsum() +
       labs(title = sprintf("Total Deaths due to COVID-19 in %s", currentIso$location),
@@ -55,7 +61,14 @@ for(iso in iso_codes){
       labs(title = sprintf("New Deaths due to of COVID-19 in %s", currentIso$location),
            x = "Month", y = "New Deaths")
 #  print(newDeaths)
-
+  
+  newDeathSmooth <- ggplot(data = currentIso, aes(x = date, y = new_deaths_smoothed)) +
+    geom_line() + theme_ipsum() +
+    labs(title = sprintf("New Deaths of COVID-19 in %s", currentIso$location),
+         x = "Month", y = "New Deaths")
+#  print(newDeathSmooth)
+  
+  
   outputFile = sprintf("%s.png", "totalCases")
   png(outputFile)
   print(totalCases)
@@ -64,6 +77,11 @@ for(iso in iso_codes){
   outputFile = sprintf("%s.png", "newCases")
   png(outputFile)  
   print(newCases)
+  dev.off()
+  
+  outputFile = sprintf("%s.png", "newCaseSmooth")
+  png(outputFile)  
+  print(newCaseSmooth)
   dev.off()
   
   outputFile = sprintf("%s.png", "totalDeaths")
@@ -76,7 +94,13 @@ for(iso in iso_codes){
   print(newDeaths)
   dev.off()
   
+  outputFile = sprintf("%s.png", "newDeathSmooth")
+  png(outputFile)  
+  print(newDeathSmooth)
+  dev.off()
+  
   print(iso)
   
   setwd("..")
+  
 }

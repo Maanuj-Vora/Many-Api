@@ -144,7 +144,9 @@ app.get("/coronavirus/image", function (request, response) {
     const {
         type
     } = request.query
-    response.sendFile(coronavirus.getImage(iso, type))
+    response.sendFile(coronavirus.getImage(iso, type), {
+        root: __dirname
+    })
 })
 /* Coronavirus Api End */
 

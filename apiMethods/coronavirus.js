@@ -31,7 +31,7 @@ module.exports = {
     },
 
     getImage: function (iso, type) {
-        return getImageLocal('/data/img/covid/', iso, type)
+        return getImageLocal('data/img/covid/', iso, type)
     }
 };
 

@@ -28,14 +28,22 @@ module.exports = {
 
     getCountry: function (country) {
         return getCountryLocal(apiHelper.getValues('coronavirus'), country)
+    },
+
+    getImage: function (iso, type) {
+        return getImageLocal('/data/img/covid/', iso, type)
     }
 };
+
+function getImageLocal(path, iso, type){
+    return path + iso + "/" + type + ".png"
+}
 
 function getISOLocal(values, iso) {
     data = []
     if (iso == undefined) {
         for (var x = 0; x < values.length; x++) {
-            data.push({"iso": values[x].iso_code, "location": values[x].location})
+            data.push({ "iso": values[x].iso_code, "location": values[x].location })
         }
         dict = { "iso_code": data.filter((x, y, z) => z.indexOf(x) === y) }
         return dict

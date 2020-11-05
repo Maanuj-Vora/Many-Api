@@ -136,6 +136,16 @@ app.get("/coronavirus/getCountry", function (request, response) {
     } = request.query
     response.send(coronavirus.getCountry(country))
 });
+
+app.get("coronavirus/image", function (request, response) {
+    const {
+        iso
+    } = request.query
+    const {
+        type
+    } = request.query
+    response.sendFile(coronavirus.getImage(iso, type))
+})
 /* Coronavirus Api End */
 
 /* Marvel Quotes Api Start */

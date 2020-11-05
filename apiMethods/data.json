@@ -1,10 +1,16 @@
 {
     "csvPath": "data/csv/",
     "jsonPath": "data/json/",
-    "noConversion": ["coronavirus.csv"],
+    "imagePath": "data/img/",
+    "noConversion": [
+        "coronavirus.csv"
+    ],
     "atlaQuote": "atla-quotes",
     "jokes": "jokes",
     "coronavirus": "coronavirus",
-    "twitterHandles": ["realDonaldTrump"],
-    "marvelQuote": "marvel-quotes"
+    "twitterHandles": [
+        "realDonaldTrump"
+    ],
+    "marvelQuote": "marvel-quotes",
+    "covidVisual": "covid"
 }

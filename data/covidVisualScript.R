@@ -16,6 +16,7 @@ iso_codes <- sort(iso_codes)
 iso_codes <- iso_codes[iso_codes!=""]
 
 #setwd(dirname(parent.frame(2)$ofile))
+setwd("data")
 dir.create("img", showWarnings = FALSE)
 setwd("img")
 dir.create("covid", showWarnings = FALSE)

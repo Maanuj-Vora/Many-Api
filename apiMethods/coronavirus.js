@@ -42,7 +42,7 @@ function getImageLocal(values, path, iso, type) {
             data.push(values[x])
         }
     }
-    if (data.length() != 0) {
+    if (data.length != 0) {
         return path + iso.toUpperCase + "/" + type + ".png"
     }
     return { "error": "image could not be retrieved" }

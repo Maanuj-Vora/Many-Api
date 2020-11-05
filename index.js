@@ -144,13 +144,10 @@ app.get("/coronavirus/getImage", function (request, response) {
     const {
         type
     } = request.query
-
     result = coronavirus.getImage(iso, type)
-
     if (result.constructor == Object) {
         response.send(result)
-    }
-    else {
+    } else {
         response.sendFile(result, {
             root: __dirname
         })

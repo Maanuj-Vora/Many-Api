@@ -154,7 +154,7 @@
             ]
         },
         {
-            "src": "/coronavirus/image",
+            "src": "/coronavirus/getImage",
             "dest": "/index.js",
             "methods": [
                 "GET"

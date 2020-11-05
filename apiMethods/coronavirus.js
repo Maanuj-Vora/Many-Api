@@ -31,12 +31,21 @@ module.exports = {
     },
 
     getImage: function (iso, type) {
-        return getImageLocal('data/img/covid/', iso, type)
+        return getImageLocal(apiHelper.getValues('coronavirus'), 'data/img/covid/', iso, type)
     }
 };
 
-function getImageLocal(path, iso, type){
-    return path + iso + "/" + type + ".png"
+function getImageLocal(values, path, iso, type) {
+    data = []
+    for (var x = 0; x < values.length; x++) {
+        if (values[x].iso_code.toLowerCase() == iso.toLowerCase()) {
+            data.push(values[x])
+        }
+    }
+    if (data.length() != 0) {
+        return path + iso.toUpperCase + "/" + type + ".png"
+    }
+    return { "error": "image could not be retrieved" }
 }
 
 function getISOLocal(values, iso) {

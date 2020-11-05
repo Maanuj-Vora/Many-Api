@@ -137,16 +137,24 @@ app.get("/coronavirus/getCountry", function (request, response) {
     response.send(coronavirus.getCountry(country))
 });
 
-app.get("/coronavirus/image", function (request, response) {
+app.get("/coronavirus/getImage", function (request, response) {
     const {
         iso
     } = request.query
     const {
         type
     } = request.query
-    response.sendFile(coronavirus.getImage(iso, type), {
-        root: __dirname
-    })
+
+    result = coronavirus.getImage(iso, type)
+
+    if (result.constructor == Object) {
+        response.send(result)
+    }
+    else {
+        response.sendFile(result, {
+            root: __dirname
+        })
+    }
 })
 /* Coronavirus Api End */
 

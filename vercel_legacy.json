@@ -154,6 +154,13 @@
             ]
         },
         {
+            "src": "/coronavirus/image",
+            "dest": "/index.js",
+            "methods": [
+                "GET"
+            ]
+        },
+        {
             "src": "/marvel-quote",
             "dest": "/index.js",
             "methods": [

@@ -1,8 +1,8 @@
 name: Me Daily Images
 
-on: [push]
-  # schedule:
-  #   - cron: "0 2 * * *"
+on:
+  schedule:
+    - cron: "0 2 * * *"
 
 jobs:
   build:

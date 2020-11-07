@@ -27,7 +27,18 @@ while index < len(csvList):
         csvReader = csv.DictReader(openCSV, delimiter="|")
         lineIndex = 1
         for item in csvReader:
-            data[str(lineIndex)] = (item.split("~~")).split("~")
+            print(item)
+            for key, value in item.items():
+                if value != None and value.__contains__("[[["):
+                    valueSplit = value.split("~")
+                    tempDict = {}
+                    dictIndex = 0
+                    while dictIndex < len(valueSplit) and len(valueSplit) % 2 == 0:
+                        tempDict.update(
+                            {valueSplit[dictIndex]: valueSplit[dictIndex+1]})
+                        dictIndex += 2
+                    item[key] = tempDict
+            data[str(lineIndex)] = item
             lineIndex += 1
 
     file = open(f'{jsonList[index]}', "w+")

@@ -2,17 +2,15 @@
 
 | Action For | Action Status |
 | --- | --- |
-![Action Jackson](https://github.com/Maanuj-Vora/Many-Api/workflows/Action%20Jackson/badge.svg)
+| CSV to JSON Converter |  ![Action Jackson](https://github.com/Maanuj-Vora/Many-Api/workflows/Action%20Jackson/badge.svg) |
+| Twitter Tweets | ![The Foxy Does What The Foxy Wants](https://github.com/Maanuj-Vora/Many-Api/workflows/The%20Foxy%20Does%20What%20The%20Foxy%20Wants/badge.svg) |
+| Coronavirus Data | ![A Good Bear Wears A Mask](https://github.com/Maanuj-Vora/Many-Api/workflows/A%20Good%20Bear%20Wears%20A%20Mask/badge.svg) |
+| Coronavirus Data Visualizer | ![Me Daily Images](https://github.com/Maanuj-Vora/Many-Api/workflows/Me%20Daily%20Images/badge.svg) |
 
-![The Foxy Does What The Foxy Wants](https://github.com/Maanuj-Vora/Many-Api/workflows/The%20Foxy%20Does%20What%20The%20Foxy%20Wants/badge.svg)
 
-![A Good Bear Wears A Mask](https://github.com/Maanuj-Vora/Many-Api/workflows/A%20Good%20Bear%20Wears%20A%20Mask/badge.svg)
-
-![Me Daily Images](https://github.com/Maanuj-Vora/Many-Api/workflows/Me%20Daily%20Images/badge.svg)
-
-![Website](https://img.shields.io/website?down_color=red&down_message=Api%20Is%20Offline&style=for-the-badge&up_message=Api%20Is%20Online&url=https%3A%2F%2Fmany-api.vercel.app%2F)
-
-[![GitHub issues](https://img.shields.io/github/issues/Maanuj-Vora/Many-Api?style=for-the-badge)](https://github.com/Maanuj-Vora/Many-Api/issues)
+| | |
+| --- | --- |
+| ![Website](https://img.shields.io/website?down_color=red&down_message=Api%20Is%20Offline&style=for-the-badge&up_message=Api%20Is%20Online&url=https%3A%2F%2Fmany-api.vercel.app%2F) | [![GitHub issues](https://img.shields.io/github/issues/Maanuj-Vora/Many-Api?style=for-the-badge)](https://github.com/Maanuj-Vora/Many-Api/issues) |
 
 ---
 

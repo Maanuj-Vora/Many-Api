@@ -30,7 +30,7 @@ while index < len(csvList):
             print(item)
             for key, value in item.items():
                 if value != None and value.__contains__("[[["):
-                    valueSplit = value.split("~")
+                    valueSplit = value.split("[[[")
                     tempDict = {}
                     dictIndex = 0
                     while dictIndex < len(valueSplit) and len(valueSplit) % 2 == 0:

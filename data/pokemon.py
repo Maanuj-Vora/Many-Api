@@ -77,8 +77,9 @@ def get_description(url):
     data = pd.read_html(requests.get(url,
                                      headers={'User-Agent': 'Mozilla/5.0'}).text)
 
-    gameList = ['RedBlue', 'Yellow', 'Gold', 'Silver', 'Crystal', 'RubySapphire', 'FireRed', 'LeafGreen', 'Emerald', 'DiamondPearlPlatinum',
-                'HeartGold', 'SoulSilver', 'BlackWhiteBlack 2White 2', 'X', 'Y', 'Omega RubyAlpha Sapphire', "Let's Go PikachuLet's Go Eevee", 'Sword', 'Shield', 'Ruby', 'Sapphire']
+    gameList = ['RedBlue', 'Yellow', 'Gold', 'Silver', 'Crystal', 'RubySapphire', 'FireRed', 'LeafGreen', 'Emerald', 'DiamondPearlPlatinum', "Diamond", "Pearl", "Platinum", "Black", "White", "Black 2", "White 2", 
+                'HeartGold', 'SoulSilver', 'BlackWhiteBlack 2White 2', 'X', 'Y', 'Omega RubyAlpha Sapphire', "Let's Go PikachuLet's Go Eevee", 'Sword', 'Shield', 'Ruby', 'Sapphire', "Let's Go Pikachu", "Let's Go Eevee",
+                "Sun", "Moon", "Ultra Sun", "Ultra Moon"]
 
     def find_desc_index():
         for x in range(len(data)):

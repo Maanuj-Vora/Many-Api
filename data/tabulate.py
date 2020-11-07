@@ -27,7 +27,7 @@ while index < len(csvList):
         csvReader = csv.DictReader(openCSV, delimiter="|")
         lineIndex = 1
         for item in csvReader:
-            data[str(lineIndex)] = item
+            data[str(lineIndex)] = (item.split("~~")).split("~")
             lineIndex += 1
 
     file = open(f'{jsonList[index]}', "w+")

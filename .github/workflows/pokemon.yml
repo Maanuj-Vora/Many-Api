@@ -1,0 +1,29 @@
+name: Gotta Catch 'Em All
+
+on: [push]
+jobs:
+  build:
+    name: Action
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: "3.x"
+          architecture: "x64"
+      - name: Get lxml
+        run: |
+          sudo apt-get install libxml2-dev libxslt-dev python-dev
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install flake8 pytest
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - run: python data/pokemon.py
+      - name: Commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "Api Updater"
+          git add .
+          git diff-index --quiet HEAD || git commit -m "I Caught a Pokémon!" -a
+          git push

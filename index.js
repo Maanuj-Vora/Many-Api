@@ -189,7 +189,7 @@ app.get("/pokemon/random", function (request, response) {
     response.send(pokemon.getRandom())
 });
 
-app.get("pokemon/getPokemon", function (request, response){
+app.get("/pokemon/getPokemon", function (request, response){
     const {
         name
     } = request.query

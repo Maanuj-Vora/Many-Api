@@ -1,5 +1,7 @@
 # Many Api
 
+| Action For | Action Status |
+| --- | --- |
 ![Action Jackson](https://github.com/Maanuj-Vora/Many-Api/workflows/Action%20Jackson/badge.svg)
 
 ![The Foxy Does What The Foxy Wants](https://github.com/Maanuj-Vora/Many-Api/workflows/The%20Foxy%20Does%20What%20The%20Foxy%20Wants/badge.svg)

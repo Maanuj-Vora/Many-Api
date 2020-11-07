@@ -6,7 +6,7 @@ module.exports = {
         return {
             "info": "Welcome to the Pokemon Api, the possible paths include",
             "random": "thisPage/random",
-            "get pokemon by name or number": "thisPage/getPokemon?name={name}&number={dex number}",
+            "get pokemon by name or number\nif the number and name are both given, the number will be priority": "thisPage/getPokemon?name={name}&number={dex number}",
             "Thank you": "Thank you for using our api!"
         }
     },
@@ -20,22 +20,26 @@ module.exports = {
 
 function getPokemonLocal(values, name, number) {
     data = []
+    if (number == undefined && name == undefined) {
+        return data
+    }
     if (number == undefined && name != undefined) {
         for (var x = 0; x < values.length; x++) {
             if (values[x].name.toLowerCase() == name.toLowerCase()) {
                 data.push(values[x])
+                break
             }
         }
-        if (data.length != 0) {
-            return data
+        return data
+    }
+    if (number != undefined && name == undefined) {
+        if (values.length > parseInt(number)) {
+            return [values[parseInt(number) - 1]]
         }
     }
-    else if (number != undefined && name == undefined) {
-        if (values.length >= parseInt(number)) {
-            data.push(values[x])
-        }
-        if (data.length != 0) {
-            return data
+    if (number != undefined && name != undefined) {
+        if (values.length > parseInt(number)) {
+            return [values[parseInt(number) - 1]]
         }
     }
     return data

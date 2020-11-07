@@ -8,9 +8,10 @@
     "atlaQuote": "atla-quotes",
     "jokes": "jokes",
     "coronavirus": "coronavirus",
+    "covidVisual": "covid",
     "twitterHandles": [
         "realDonaldTrump"
     ],
     "marvelQuote": "marvel-quotes",
-    "covidVisual": "covid"
+    "pokemon":"pokemon"
 }

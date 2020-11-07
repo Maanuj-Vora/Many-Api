@@ -178,6 +178,28 @@ app.get("/marvel-quote/amount", function (request, response) {
 });
 /* Marvel Quotes Api End */
 
+/* Pokemon Api Start */
+var pokemon = require('./apiMethods/pokemon');
+
+app.get("/pokemon", function (request, response) {
+    response.send(pokemon.getInfo())
+});
+
+app.get("/pokemon/random", function (request, response) {
+    response.send(pokemon.getRandom())
+});
+
+app.get("pokemon/getPokemon", function (request, response){
+    const {
+        name
+    } = request.query
+    const {
+        number
+    } = request.query
+    response.send(pokemon.getPokemon(name, number))
+})
+/* Pokemon Api End */
+
 const listener = app.listen(port, function () {
     console.log("Your app is listening on port " + listener.address().port);
 });

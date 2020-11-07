@@ -187,6 +187,20 @@
             "methods": [
                 "GET"
             ]
+        },
+        {
+            "src": "/pokemon/random",
+            "dest": "index.js",
+            "methods": [
+                "GET"
+            ]
+        },
+        {
+            "src": "/pokemon/getPokemon",
+            "dest": "index.js",
+            "methods": [
+                "GET"
+            ]
         }
     ]
 }

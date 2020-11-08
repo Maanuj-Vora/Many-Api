@@ -29,3 +29,11 @@ jobs:
           git add .
           git diff-index --quiet HEAD || git commit -m "(╯°□°)╯︵◓" -a
           git push
+      - run: python data/pokemonImages.py
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v5
+        with:
+          message: "(╯°□°)╯︵◓"
+          branch: implementation
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

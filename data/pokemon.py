@@ -14,9 +14,6 @@ gameList = ['FireRed', 'LeafGreen', 'Omega Ruby', 'Alpha Sapphire',
             "Let's Go Pikachu", "Let's Go Eevee", 'HeartGold', 'SoulSilver', 'Black 2', 'White 2', 'Ultra Sun', 'Ultra Moon', 'Diamond', 'Pearl', 'Platinum',
             'Sapphire', 'Ruby', 'Emerald', 'Crystal', 'Gold', 'Silver', 'Black', 'White', 'Sun', 'Moon', 'Sword', 'Shield', 'Yellow', 'Red', 'Blue', 'X', 'Y']
 
-errorSprites = []
-errorArtworks = []
-
 
 def scrape_general_page(base_url):
     if not os.path.exists(file_name):
@@ -124,55 +121,20 @@ def get_images(pokemon):
     if not os.path.exists(f'data/img/pokemon/sprites/{pokemon}'):
         os.makedirs(f'data/img/pokemon/sprites/{pokemon}')
 
+    req = urllib.request.Request(f'https://pokemondb.net/pokedex/{pokemon}', headers={'User-agent': 'Mozilla/5.0'})
+    website = (urllib.request.urlopen(req)).read()
+    websoup = BeautifulSoup(website, "lxml")
+    artUrl = websoup.find("meta", property="og:image")
+
     opener = urllib.request.build_opener()
     opener.addheaders = [('User-agent', 'Mozilla/5.0')]
     urllib.request.install_opener(opener)
-    try:
-        urllib.request.urlretrieve(
-            f"https://img.pokemondb.net/sprites/sword-shield/normal/{pokemon.lower()}.png", f"data/img/pokemon/sprites/{pokemon.lower()}/{pokemon.lower()}.png")
-    except:
-        try:
-            urllib.request.urlretrieve(
-                f"https://img.pokemondb.net/sprites/lets-go-pikachu-eevee/normal/{pokemon.lower()}.png", f"data/img/pokemon/sprites/{pokemon.lower()}/{pokemon.lower()}.png")
-        except:
-            try:
-                urllib.request.urlretrieve(
-                    f"https://img.pokemondb.net/sprites/x-y/normal/{pokemon.lower()}.png", f"data/img/pokemon/sprites/{pokemon.lower()}/{pokemon.lower()}.png")
-            except:
-                try:
-                    urllib.request.urlretrieve(
-                        f"https://img.pokemondb.net/sprites/black-white/normal/{pokemon.lower()}.png", f"data/img/pokemon/sprites/{pokemon.lower()}/{pokemon.lower()}.png")
-                except:
-                    try:
-                        urllib.request.urlretrieve(
-                            f"https://img.pokemondb.net/sprites/diamond-pearl/normal/{pokemon.lower()}.png", f"data/img/pokemon/sprites/{pokemon.lower()}/{pokemon.lower()}.png")
-                    except:
-                        try:
-                            urllib.request.urlretrieve(
-                                f"https://img.pokemondb.net/sprites/ruby-sapphire/normal/{pokemon.lower()}.png", f"data/img/pokemon/sprites/{pokemon.lower()}/{pokemon.lower()}.png")
-                        except:
-                            try:
-                                urllib.request.urlretrieve(
-                                    f"https://img.pokemondb.net/sprites/silver/normal/{pokemon.lower()}.png", f"data/img/pokemon/sprites/{pokemon.lower()}/{pokemon.lower()}.png")
-                            except:
-                                try:
-                                    urllib.request.urlretrieve(
-                                        f"https://img.pokemondb.net/sprites/red-blue/normal/{pokemon.lower()}.png", f"data/img/pokemon/sprites/{pokemon.lower()}/{pokemon.lower()}.png")
-                                except:
-                                    print(
-                                        f'Could not retrieve {pokemon.lower()} sprite')
-                                    errorSprites.append(pokemon)
+    #urllib.request.urlretrieve(f"https://img.pokemondb.net/sprites/sword-shield/normal/{pokemon.lower()}.png", f"data/img/pokemon/sprites/{pokemon.lower()}/{pokemon.lower()}.png")
 
-    try:
-        urllib.request.urlretrieve(
-            f"https://img.pokemondb.net/artwork/{pokemon.lower()}.jpg", f"data/img/pokemon/artwork/{pokemon.lower()}/{pokemon.lower()}.png")
-    except:
-        try:
-            urllib.request.urlretrieve(
-                f"https://img.pokemondb.net/artwork/{pokemon.lower()}-altered.jpg", f"data/img/pokemon/artwork/{pokemon.lower()}/{pokemon.lower()}.png")
-        except:
-            print(f'Could not retrieve {pokemon.lower()} artwork')
-            errorArtworks.append(pokemon)
+   
+    urllib.request.urlretrieve(
+            f"{artUrl['content']}", f"data/img/pokemon/artwork/{pokemon.lower()}/{pokemon.lower()}.png")
+    
 
 
 def parse_infocards(soup, pokemon_infos):
@@ -216,6 +178,3 @@ soup = create_bs4_object(result)
 pokemon_infos = """number|name|type_1|type_2|link|species|height|weight|abilities|catch_rate|base_exp|growth_rate|breeding_gender|hp|attack|defense|sp_atk|sp_def|speed|total|description"""
 
 parse_infocards(soup, pokemon_infos)
-
-print('Error Sprites = ' + errorSprites)
-print('Error Artworks = ' + errorArtworks)

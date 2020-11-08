@@ -1,6 +1,8 @@
 name: Gotta Catch 'Em All
 
-on: [push]
+on:
+  schedule:
+    - cron: "0 0 1 * *"
 jobs:
   build:
     name: Action
@@ -25,5 +27,5 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "Api Updater"
           git add .
-          git diff-index --quiet HEAD || git commit -m "I Caught a Pokémon!" -a
+          git diff-index --quiet HEAD || git commit -m "(╯°□°)╯︵◓" -a
           git push

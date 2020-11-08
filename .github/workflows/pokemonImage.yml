@@ -1,8 +1,9 @@
-name: Gotta Catch 'Em All
+name: Gotta Catch 'Em All - Images
 
 on:
-  schedule:
-    - cron: "0 0 1 * *"
+  [push]
+  # schedule:
+  #   - cron: "0 0 1 * *"
 jobs:
   build:
     name: Action
@@ -21,11 +22,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install flake8 pytest
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      - run: python data/pokemon.py
-      - name: Commit files
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "Api Updater"
-          git add .
-          git diff-index --quiet HEAD || git commit -m "(╯°□°)╯︵◓" -a
-          git push
+      - run: python data/pokemonImages.py
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v5
+        with:
+          message: "Trying Pokemon Image Commit"
+          branch: implementation
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -2,7 +2,7 @@
 
 | Action For | Runs | Action Status |
 | --- | --- | --- |
-| CSV to JSON Converter | Anytime new data it fetched | ![Action Jackson](https://github.com/Maanuj-Vora/Many-Api/workflows/Action%20Jackson/badge.svg) |
+| CSV to JSON Converter | Anytime new data is fetched | ![Action Jackson](https://github.com/Maanuj-Vora/Many-Api/workflows/Action%20Jackson/badge.svg) |
 | Twitter Tweets | Once a day | ![The Foxy Does What The Foxy Wants](https://github.com/Maanuj-Vora/Many-Api/workflows/The%20Foxy%20Does%20What%20The%20Foxy%20Wants/badge.svg) |
 | Coronavirus Data | Twice a day | ![A Good Bear Wears A Mask](https://github.com/Maanuj-Vora/Many-Api/workflows/A%20Good%20Bear%20Wears%20A%20Mask/badge.svg) |
 | Pokemon | Once a month | ![Gotta Catch 'Em All](https://github.com/Maanuj-Vora/Many-Api/workflows/Gotta%20Catch%20'Em%20All/badge.svg)

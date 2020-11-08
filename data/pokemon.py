@@ -14,6 +14,9 @@ gameList = ['FireRed', 'LeafGreen', 'Omega Ruby', 'Alpha Sapphire',
             "Let's Go Pikachu", "Let's Go Eevee", 'HeartGold', 'SoulSilver', 'Black 2', 'White 2', 'Ultra Sun', 'Ultra Moon', 'Diamond', 'Pearl', 'Platinum',
             'Sapphire', 'Ruby', 'Emerald', 'Crystal', 'Gold', 'Silver', 'Black', 'White', 'Sun', 'Moon', 'Sword', 'Shield', 'Yellow', 'Red', 'Blue', 'X', 'Y']
 
+errorSprites = []
+errorArtworks = []
+
 
 def scrape_general_page(base_url):
     if not os.path.exists(file_name):
@@ -158,9 +161,18 @@ def get_images(pokemon):
                                 except:
                                     print(
                                         f'Could not retrieve {pokemon.lower()} sprite')
+                                    errorSprites.append(pokemon)
 
-    urllib.request.urlretrieve(
-        f"https://img.pokemondb.net/artwork/{pokemon.lower()}.jpg", f"data/img/pokemon/artwork/{pokemon.lower()}/{pokemon.lower()}.png")
+    try:
+        urllib.request.urlretrieve(
+            f"https://img.pokemondb.net/artwork/{pokemon.lower()}.jpg", f"data/img/pokemon/artwork/{pokemon.lower()}/{pokemon.lower()}.png")
+    except:
+        try:
+            urllib.request.urlretrieve(
+                f"https://img.pokemondb.net/artwork/{pokemon.lower()}-altered.jpg", f"data/img/pokemon/artwork/{pokemon.lower()}/{pokemon.lower()}.png")
+        except:
+            print(f'Could not retrieve {pokemon.lower()} artwork')
+            errorArtworks.append(pokemon)
 
 
 def parse_infocards(soup, pokemon_infos):
@@ -204,3 +216,6 @@ soup = create_bs4_object(result)
 pokemon_infos = """number|name|type_1|type_2|link|species|height|weight|abilities|catch_rate|base_exp|growth_rate|breeding_gender|hp|attack|defense|sp_atk|sp_def|speed|total|description"""
 
 parse_infocards(soup, pokemon_infos)
+
+print('Error Sprites = ' + errorSprites)
+print('Error Artworks = ' + errorArtworks)

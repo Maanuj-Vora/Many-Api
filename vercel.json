@@ -39,6 +39,7 @@
             "trailingSlash": false,
             "cleanUrls": true
         },
+        { "handle": "filesystem" },
         {
             "src": "/.*",
             "status": 404,

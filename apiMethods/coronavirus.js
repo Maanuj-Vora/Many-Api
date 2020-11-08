@@ -4,7 +4,6 @@ const request = require('request');
 const fs = require('fs');
 
 module.exports = {
-
     getInfo: function () {
         return {
             "info": "Welcome to the Coronavirus Api, the possible paths include",
@@ -15,23 +14,18 @@ module.exports = {
             "Thank you": "Thank you for using our api!"
         }
     },
-
     getAll: function () {
         return apiHelper.getAllHelper(apiHelper.getValues('coronavirus'))
     },
-
     getData: function (date, iso) {
         return getDataLocal(apiHelper.getValues('coronavirus'), date, iso)
     },
-
     getISO: function (iso) {
         return getISOLocal(apiHelper.getValues('coronavirus'), iso)
     },
-
     getCountry: function (country) {
         return getCountryLocal(apiHelper.getValues('coronavirus'), country)
     },
-
     getImage: function (iso, type) {
         return getImageLocal(apiHelper.getValues('coronavirus'), apiHelper.getItem('coronavirusVisual'), iso, type)
     }

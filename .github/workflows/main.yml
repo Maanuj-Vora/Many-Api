@@ -27,7 +27,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install flake8 pytest
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      - run: python data/tabulate.py
+      - run: python data/scripts/tabulate.py
       - name: Commit files
         run: |
           git config --local user.email "action@github.com"

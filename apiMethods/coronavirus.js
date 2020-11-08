@@ -43,7 +43,7 @@ function getImageLocal(values, path, iso, type) {
         }
     }
     if (data.length != 0) {
-        return path + iso.toUpperCase() + "/" + type + ".png"
+        return "maanuj-vora.github.io/Many-Api/" + path + iso.toUpperCase() + "/" + type + ".png"
     }
     return { "error": "image could not be retrieved" }
 }

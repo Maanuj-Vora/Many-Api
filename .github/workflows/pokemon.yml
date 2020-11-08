@@ -21,7 +21,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install flake8 pytest
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      - run: python data/pokemon.py
+      - run: python data/scripts/pokemon.py
       - name: Commit files
         run: |
           git config --local user.email "action@github.com"
@@ -29,7 +29,7 @@ jobs:
           git add .
           git diff-index --quiet HEAD || git commit -m "(╯°□°)╯︵◓" -a
           git push
-      - run: python data/pokemonImages.py
+      - run: python data/scripts/pokemonImages.py
       - name: Commit changes
         uses: EndBug/add-and-commit@v5
         with:

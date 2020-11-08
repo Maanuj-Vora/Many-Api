@@ -2,7 +2,7 @@ name: A Good Bear Wears A Mask
 
 on: [push]
   # schedule:
-  #   - cron: "0 0,6,12,18 * * *"
+  #   - cron: "0 6,18 * * *"
 
 jobs:
   build:
@@ -22,7 +22,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install flake8 pytest
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      - run: python data/coronavirus.py
+      - run: python data/scripts/coronavirus.py
       - name: Commit files
         run: |
           git config --local user.email "action@github.com"
@@ -37,7 +37,7 @@ jobs:
       - name: Install Required Packages
         run: Rscript -e 'install.packages(c("tidyverse","ggplot2", "hrbrthemes"))'
       - name: Run it
-        run: Rscript data/covidVisualScript.R
+        run: Rscript data/scripts/covidVisualScript.R
       - name: Commit changes
         uses: EndBug/add-and-commit@v5
         with:

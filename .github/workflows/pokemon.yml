@@ -29,3 +29,11 @@ jobs:
           git add .
           git diff-index --quiet HEAD || git commit -m "(╯°□°)╯︵◓" -a
           git push
+      - name: python data/pokemonImages.py
+      - name: Commit Images
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          publish_branch: implementation
+          keep_files: true

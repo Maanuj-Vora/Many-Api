@@ -112,31 +112,6 @@ def get_description(url):
     return returnString
 
 
-def get_images(pokemon):
-
-    pokemon = pokemon.lower()
-
-    if not os.path.exists(f'data/img/pokemon/artwork/{pokemon}'):
-        os.makedirs(f'data/img/pokemon/artwork/{pokemon}')
-    if not os.path.exists(f'data/img/pokemon/sprites/{pokemon}'):
-        os.makedirs(f'data/img/pokemon/sprites/{pokemon}')
-
-    req = urllib.request.Request(f'https://pokemondb.net/pokedex/{pokemon}', headers={'User-agent': 'Mozilla/5.0'})
-    website = (urllib.request.urlopen(req)).read()
-    websoup = BeautifulSoup(website, "lxml")
-    artUrl = websoup.find("meta", property="og:image")
-
-    opener = urllib.request.build_opener()
-    opener.addheaders = [('User-agent', 'Mozilla/5.0')]
-    urllib.request.install_opener(opener)
-    #urllib.request.urlretrieve(f"https://img.pokemondb.net/sprites/sword-shield/normal/{pokemon.lower()}.png", f"data/img/pokemon/sprites/{pokemon.lower()}/{pokemon.lower()}.png")
-
-   
-    urllib.request.urlretrieve(
-            f"{artUrl['content']}", f"data/img/pokemon/artwork/{pokemon.lower()}/{pokemon.lower()}.png")
-    
-
-
 def parse_infocards(soup, pokemon_infos):
     infocards = soup.find_all("span", class_="infocard-lg-data text-muted")
 
@@ -151,10 +126,6 @@ def parse_infocards(soup, pokemon_infos):
             r = requests.get(BASE_URL + gen_infos_list[-1])
 
             description = get_description(BASE_URL + gen_infos_list[-1])
-
-            temp_gen_infos_list = gen_infos_list
-            get_images((temp_gen_infos_list[-1])
-                       [(temp_gen_infos_list[-1]).rindex('/')+1:])
 
             if r.status_code != 200:
                 ic_infos += "|Nan" * (len(pokemon_infos) - len(gen_infos_list))

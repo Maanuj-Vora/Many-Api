@@ -124,8 +124,41 @@ def get_images(pokemon):
     opener = urllib.request.build_opener()
     opener.addheaders = [('User-agent', 'Mozilla/5.0')]
     urllib.request.install_opener(opener)
-    urllib.request.urlretrieve(
-        f"https://img.pokemondb.net/sprites/sword-shield/normal/{pokemon.lower()}.png", f"data/img/pokemon/sprites/{pokemon.lower()}/{pokemon.lower()}.png")
+    try:
+        urllib.request.urlretrieve(
+            f"https://img.pokemondb.net/sprites/sword-shield/normal/{pokemon.lower()}.png", f"data/img/pokemon/sprites/{pokemon.lower()}/{pokemon.lower()}.png")
+    except:
+        try:
+            urllib.request.urlretrieve(
+                f"https://img.pokemondb.net/sprites/lets-go-pikachu-eevee/normal/{pokemon.lower()}.png", f"data/img/pokemon/sprites/{pokemon.lower()}/{pokemon.lower()}.png")
+        except:
+            try:
+                urllib.request.urlretrieve(
+                    f"https://img.pokemondb.net/sprites/x-y/normal/{pokemon.lower()}.png", f"data/img/pokemon/sprites/{pokemon.lower()}/{pokemon.lower()}.png")
+            except:
+                try:
+                    urllib.request.urlretrieve(
+                        f"https://img.pokemondb.net/sprites/black-white/normal/{pokemon.lower()}.png", f"data/img/pokemon/sprites/{pokemon.lower()}/{pokemon.lower()}.png")
+                except:
+                    try:
+                        urllib.request.urlretrieve(
+                            f"https://img.pokemondb.net/sprites/diamond-pearl/normal/{pokemon.lower()}.png", f"data/img/pokemon/sprites/{pokemon.lower()}/{pokemon.lower()}.png")
+                    except:
+                        try:
+                            urllib.request.urlretrieve(
+                                f"https://img.pokemondb.net/sprites/ruby-sapphire/normal/{pokemon.lower()}.png", f"data/img/pokemon/sprites/{pokemon.lower()}/{pokemon.lower()}.png")
+                        except:
+                            try:
+                                urllib.request.urlretrieve(
+                                    f"https://img.pokemondb.net/sprites/silver/normal/{pokemon.lower()}.png", f"data/img/pokemon/sprites/{pokemon.lower()}/{pokemon.lower()}.png")
+                            except:
+                                try:
+                                    urllib.request.urlretrieve(
+                                        f"https://img.pokemondb.net/sprites/red-blue/normal/{pokemon.lower()}.png", f"data/img/pokemon/sprites/{pokemon.lower()}/{pokemon.lower()}.png")
+                                except:
+                                    print(
+                                        f'Could not retrieve {pokemon.lower()} sprite')
+
     urllib.request.urlretrieve(
         f"https://img.pokemondb.net/artwork/{pokemon.lower()}.jpg", f"data/img/pokemon/artwork/{pokemon.lower()}/{pokemon.lower()}.png")
 

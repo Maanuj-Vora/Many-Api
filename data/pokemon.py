@@ -77,9 +77,9 @@ def get_description(url):
     data = pd.read_html(requests.get(url,
                                      headers={'User-Agent': 'Mozilla/5.0'}).text)
 
-    gameList = ['RedBlue', 'Yellow', 'Gold', 'Silver', 'Crystal', 'RubySapphire', 'FireRed', 'LeafGreen', 'Emerald', 'DiamondPearlPlatinum', "Diamond", "Pearl", "Platinum", "Black", "White", "Black 2", "White 2", 
-                'HeartGold', 'SoulSilver', 'BlackWhiteBlack 2White 2', 'X', 'Y', 'Omega RubyAlpha Sapphire', "Let's Go PikachuLet's Go Eevee", 'Sword', 'Shield', 'Ruby', 'Sapphire', "Let's Go Pikachu", "Let's Go Eevee",
-                "Sun", "Moon", "Ultra Sun", "Ultra Moon"]
+    gameList = ['FireRed', 'LeafGreen', 'Omega Ruby', 'Alpha Sapphire',
+                "Let's Go Pikachu", "Let's Go Eevee", 'HeartGold', 'SoulSilver', 'Black 2', 'White 2', 'Ultra Sun', 'Ultra Moon', 'Diamond', 'Pearl', 'Platinum',
+                'Sapphire', 'Ruby', 'Emerald', 'Crystal', 'Gold', 'Silver', 'Sun', 'Moon', 'Sword', 'Shield', 'Yellow', 'Red', 'Blue', 'X', 'Y']
 
     def find_desc_index():
         for x in range(len(data)):
@@ -90,14 +90,25 @@ def get_description(url):
 
     correctIndex = find_desc_index()
 
-    df = data[correctIndex]
-    df.columns = ['game', 'description']
+    descriptionListClean = []
+
+    dataframe = data[correctIndex].values.tolist()
+
+    for index in range(len(dataframe)):
+        tempDesc = dataframe[index][1]
+        gameTitles = dataframe[index][0]
+
+        for game in gameList:
+            if gameTitles.__contains__(game):
+                descriptionListClean.append([game, tempDesc])
+                gameTitles = gameTitles.replace(game, '')
+
+    df = pd.DataFrame(descriptionListClean, columns=['game', 'description'])
     description = ""
     description = [
         f"{x}[[[{y}" for x, y in zip(df['game'], df['description'])]
     returnString = '[[['.join(description)
     return returnString
-
 
 def parse_infocards(soup, pokemon_infos):
     infocards = soup.find_all("span", class_="infocard-lg-data text-muted")

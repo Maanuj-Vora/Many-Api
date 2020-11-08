@@ -85,7 +85,7 @@ def get_description(url):
         for x in range(len(data)):
             dfList = data[x].values.tolist()
             for game in gameList:
-                if dfList[0][0].__contains__(game):
+                if (str(dfList[0][0])).__contains__(game):
                     return x
 
     correctIndex = find_desc_index()

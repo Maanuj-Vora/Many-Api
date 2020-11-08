@@ -13,5 +13,8 @@
         "realDonaldTrump"
     ],
     "marvelQuote": "marvel-quotes",
-    "pokemon":"pokemon"
+    "pokemon":"pokemon",
+    "pokemonArtwork": "http://maanuj-vora.github.io/Many-Api/data/img/pokemon/artwork/",
+    "pokemonArtworkLink": "https://many-api.vercel.app/pokemon/getArtwork",
+    "coronavirusVisual": "http://maanuj-vora.github.io/Many-Api/data/img/covid/"
 }

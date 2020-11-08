@@ -144,15 +144,8 @@ app.get("/coronavirus/getImage", function (request, response) {
     const {
         type
     } = request.query
-    result = coronavirus.getImage(iso, type)
-    if (result.constructor == Object) {
-        response.send(result)
-    } else {
-        response.sendFile(result, {
-            root: __dirname
-        })
-    }
-})
+    require('request').get(coronavirus.getImage(iso, type)).pipe(response)
+});
 /* Coronavirus Api End */
 
 /* Marvel Quotes Api Start */
@@ -189,7 +182,7 @@ app.get("/pokemon/random", function (request, response) {
     response.send(pokemon.getRandom())
 });
 
-app.get("/pokemon/getPokemon", function (request, response){
+app.get("/pokemon/getPokemon", function (request, response) {
     const {
         name
     } = request.query
@@ -197,7 +190,14 @@ app.get("/pokemon/getPokemon", function (request, response){
         number
     } = request.query
     response.send(pokemon.getPokemon(name, number))
-})
+});
+
+app.get("/pokemon/getArtwork", function (request, response) {
+    const {
+        name
+    } = request.query
+    require('request').get(pokemon.getArtwork(name)).pipe(response)
+});
 /* Pokemon Api End */
 
 const listener = app.listen(port, function () {

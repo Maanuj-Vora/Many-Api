@@ -7,6 +7,9 @@ module.exports = {
     },
     getJsonObjRaw: function (itemName) {
         return getJson(getPathRaw(itemName))
+    },
+    getItem: function (itemName){
+        return getItemLocal(itemName)
     }
 };
 
@@ -24,4 +27,9 @@ function getPathRaw(configName) {
     let rawdata = fs.readFileSync(path.resolve(__dirname + "/apiMethods/data.json"));
     let config = JSON.parse(rawdata);
     return (config['jsonPath'] + configName + '.json')
+}
+function getItemLocal(configName){
+    let rawdata = fs.readFileSync(path.resolve(__dirname + "/apiMethods/data.json"));
+    let config = JSON.parse(rawdata);
+    return (config[configName])
 }

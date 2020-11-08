@@ -11,14 +11,37 @@ module.exports = {
         }
     },
     getRandom: function () {
-        return apiHelper.getRandomHelper(apiHelper.getValues('pokemon'))
+        return getRandomLocal(apiHelper.getRandomHelper(apiHelper.getValues('pokemon')), apiHelper.getItem('pokemonArtworkLink'))
     },
     getPokemon: function (name, number) {
-        return getPokemonLocal(apiHelper.getValues('pokemon'), name, number)
+        return getPokemonLocal(apiHelper.getValues('pokemon'), apiHelper.getItem('pokemonArtworkLink'), name, number)
+    },
+    getArtwork: function (name) {
+        return getArtworkLocal(apiHelper.getValues('pokemon'), apiHelper.getItem('pokemonArtwork'), name)
     }
 };
 
-function getPokemonLocal(values, name, number) {
+function getRandomLocal(values, artwork) {
+    name = /[^/]*$/.exec(values['link'])[0]
+    values['artworkLink'] = artwork + "?name=" + name
+    return values
+}
+
+function getArtworkLocal(values, path, name) {
+    data = []
+    for (var x = 0; x < values.length; x++) {
+        result = /[^/]*$/.exec(values[x].link)[0]
+        if (result.toLowerCase() == name.toLowerCase()) {
+            data.push(values[x])
+        }
+    }
+    if (data.length != 0) {
+        return (path + name.toLowerCase() + "/" + name.toLowerCase() + ".png")
+    }
+    return { "error": "image could not be retrieved" }
+}
+
+function getPokemonLocal(values, artwork, name, number) {
     data = []
     if (number == undefined && name == undefined) {
         return data
@@ -26,21 +49,17 @@ function getPokemonLocal(values, name, number) {
     if (number == undefined && name != undefined) {
         for (var x = 0; x < values.length; x++) {
             if (values[x].name.toLowerCase() == name.toLowerCase()) {
-                data.push(values[x])
+                data = values[x]
                 break
             }
         }
-        return data
     }
-    if (number != undefined && name == undefined) {
+    else if ((number != undefined && name == undefined) || (number != undefined && name != undefined)) {
         if (values.length > parseInt(number)) {
-            return [values[parseInt(number) - 1]]
+            data = values[parseInt(number) - 1]
         }
     }
-    if (number != undefined && name != undefined) {
-        if (values.length > parseInt(number)) {
-            return [values[parseInt(number) - 1]]
-        }
-    }
+    name = /[^/]*$/.exec(data['link'])[0]
+    data['artworkLink'] = artwork + "?name=" + name
     return data
 }

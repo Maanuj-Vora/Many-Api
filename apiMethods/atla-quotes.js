@@ -2,7 +2,6 @@ const getJsonScript = require('../jsonObj');
 const apiHelper = require('./apiHelper')
 
 module.exports = {
-
     getInfo: function () {
         return {
             "info": "Welcome to the Avatar the Last Airbender Quote Api, the possible paths include",

@@ -1,5 +1,7 @@
 const getJsonScript = require('../jsonObj');
 const apiHelper = require('./apiHelper')
+const request = require('request');
+const fs = require('fs');
 
 module.exports = {
 
@@ -31,7 +33,7 @@ module.exports = {
     },
 
     getImage: function (iso, type) {
-        return getImageLocal(apiHelper.getValues('coronavirus'), 'data/img/covid/', iso, type)
+        return getImageLocal(apiHelper.getValues('coronavirus'), apiHelper.getItem('coronavirusVisual'), iso, type)
     }
 };
 
@@ -43,7 +45,7 @@ function getImageLocal(values, path, iso, type) {
         }
     }
     if (data.length != 0) {
-        return "maanuj-vora.github.io/Many-Api/" + path + iso.toUpperCase() + "/" + type + ".png"
+        return (path + iso.toUpperCase() + "/" + type + ".png")
     }
     return { "error": "image could not be retrieved" }
 }
@@ -141,5 +143,4 @@ function getDataLocal(values, date, iso) {
         }
         return data
     }
-
 }

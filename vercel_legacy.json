@@ -201,6 +201,13 @@
             "methods": [
                 "GET"
             ]
+        },
+        {
+            "src": "/pokemon/getArtwork",
+            "dest": "index.js",
+            "methods": [
+                "GET"
+            ]
         }
     ]
 }

@@ -83,10 +83,13 @@ def get_description(url):
 
     def find_desc_index(y):
         for x in range(len(data)):
-            dfList = data[x].values.tolist()
-            for game in gameList:
-                if dfList[y][0] == game:
-                    return x
+            try:
+                dfList = data[x].values.tolist()
+                for game in gameList:
+                    if dfList[y][0] == game:
+                        return x
+            except:
+                print('Oops')
         return find_desc_index(y+1)
 
     correctIndex = find_desc_index(0)

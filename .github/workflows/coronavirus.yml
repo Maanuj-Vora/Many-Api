@@ -39,9 +39,10 @@ jobs:
       - name: Run it
         run: Rscript data/scripts/covidVisualScript.R
       - name: Commit changes
-        uses: EndBug/add-and-commit@v5
+        uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          message: "Coronavirus Data Visualized 😷"
-          branch: data
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          commit_message: "Coronavirus Data Visualized 😷"
+          branch: gh-pages
+          skip_dirty_check: true
+
+        

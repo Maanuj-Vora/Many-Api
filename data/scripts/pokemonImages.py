@@ -57,6 +57,7 @@ def get_sprites():
                 f"{item[1]}", f"data/img/pokemon/sprites/{item[0]}/{item[0]}.png")
         except:
             noValidSprites.append(item[0])
+        print(item[0])
 
     print(noValidSprites)
 

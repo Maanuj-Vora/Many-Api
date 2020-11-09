@@ -1,8 +1,9 @@
 name: Gotta Catch 'Em All
 
 on:
-  schedule:
-    - cron: "0 0 1 * *"
+  [push]
+  # schedule:
+  #   - cron: "0 0 1 * *"
 jobs:
   build:
     name: Action
@@ -21,19 +22,13 @@ jobs:
           python -m pip install --upgrade pip
           pip install flake8 pytest
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      - run: python data/scripts/pokemon.py
-      - name: Commit files
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "Api Updater"
-          git add .
-          git diff-index --quiet HEAD || git commit -m "(╯°□°)╯︵◓" -a
-          git push
       - run: python data/scripts/pokemonImages.py
       - name: Commit changes
         uses: EndBug/add-and-commit@v5
         with:
-          message: "I caught a Pokemon!"
+          author_email: action@github.com
+          author_name: Api Updater
+          message: "(╯°□°)╯︵◓"
           branch: implementation
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

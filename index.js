@@ -203,3 +203,7 @@ app.get("/pokemon/getArtwork", function (request, response) {
 const listener = app.listen(port, function () {
     console.log("Your app is listening on port " + listener.address().port);
 });
+
+app.get('*', function (request, response) {
+    request.status(404).render('404.html')
+});

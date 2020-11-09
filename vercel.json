@@ -38,7 +38,6 @@
             "continue": true,
             "trailingSlash": false,
             "cleanUrls": true
-        },
-        { "src": "/*/.*", "dest": "/404.html" }
+        }
     ]
 }

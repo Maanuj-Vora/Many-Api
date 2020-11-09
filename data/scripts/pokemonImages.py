@@ -49,9 +49,10 @@ def get_sprites():
 
     noValidSprites = []
     for item in image_info:
-        if not os.path.exists(f'data/img/pokemon/sprites/{item[0]}'):
-            os.makedirs(f'data/img/pokemon/sprites/{item[0]}')
         try:
+            if not os.path.exists(f'data/img/pokemon/sprites/{item[0]}'):
+                os.makedirs(f'data/img/pokemon/sprites/{item[0]}')
+
             urllib.request.urlretrieve(
                 f"{item[1]}", f"data/img/pokemon/sprites/{item[0]}/{item[0]}.png")
         except:

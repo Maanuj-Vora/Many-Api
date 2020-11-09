@@ -34,7 +34,7 @@ jobs:
           git push
       - run: python data/scripts/pokemonImages.py
       - name: Commit changes
-        uses: EndBug/add-and-commit@v5
+        uses: EndBug/add-and-commit@v5.1.1
         with:
           message: "I caught a Pokemon!"
           branch: data

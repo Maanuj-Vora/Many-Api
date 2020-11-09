@@ -24,11 +24,11 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - run: python data/scripts/pokemonImages.py
       - name: Commit changes
-        uses: EndBug/add-and-commit@v5
+        uses: EndBug/add-and-commit@v4
         with:
           author_email: action@github.com
           author_name: Api Updater
-          message: "(╯°□°)╯︵◓"
-          branch: implementation
+          message: "Pokemon Images Updated"
+          ref: 'implementation'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -34,9 +34,8 @@ jobs:
           git push
       - run: python data/scripts/pokemonImages.py
       - name: Commit changes
-        uses: EndBug/add-and-commit@v5.1.1
+        uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          message: "I caught a Pokemon!"
+          commit_message: "I caught a Pokemon!"
           branch: data
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          skip_dirty_check: true

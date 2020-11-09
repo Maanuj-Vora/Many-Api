@@ -1,6 +1,8 @@
 name: A Good Bear Wears A Mask
 
 on:
+  push:
+    branches: [master]
   schedule:
     - cron: "0 6,18 * * *"
 
@@ -44,5 +46,6 @@ jobs:
           commit_message: "Coronavirus Data Visualized 😷"
           branch: gh-pages
           skip_dirty_check: true
+          push_options: '--force'
 
         

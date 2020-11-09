@@ -2,6 +2,9 @@ import os
 import urllib
 from bs4 import BeautifulSoup
 import csv
+import requests
+import urllib.request
+import shutil
 
 
 def get_images(pokemon):
@@ -10,8 +13,6 @@ def get_images(pokemon):
 
     if not os.path.exists(f'data/img/pokemon/artwork/{pokemon}'):
         os.makedirs(f'data/img/pokemon/artwork/{pokemon}')
-    if not os.path.exists(f'data/img/pokemon/sprites/{pokemon}'):
-        os.makedirs(f'data/img/pokemon/sprites/{pokemon}')
 
     req = urllib.request.Request(
         f'https://pokemondb.net/pokedex/{pokemon}', headers={'User-agent': 'Mozilla/5.0'})
@@ -22,10 +23,41 @@ def get_images(pokemon):
     opener = urllib.request.build_opener()
     opener.addheaders = [('User-agent', 'Mozilla/5.0')]
     urllib.request.install_opener(opener)
-    #urllib.request.urlretrieve(f"https://img.pokemondb.net/sprites/sword-shield/normal/{pokemon.lower()}.png", f"data/img/pokemon/sprites/{pokemon.lower()}/{pokemon.lower()}.png")
 
     urllib.request.urlretrieve(
         f"{artUrl['content']}", f"data/img/pokemon/artwork/{pokemon.lower()}/{pokemon.lower()}.png")
+
+
+def get_sprites():
+    url = "https://pokemondb.net/sprites"
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, "html.parser")
+    spans = soup.find_all("span", class_='img-fixed icon-pkmn')
+    image_info = []
+    for span in spans:
+        pokeName = (span["data-alt"]).split(" ")
+        if pokeName[0].lower() == "Nidoran♂".lower():
+            pokeName[0] = "Nidoran-m"
+        elif pokeName[0].lower() == "Nidoran♀".lower():
+            pokeName[0] = "Nidoran-f"
+        image_info.append(
+            [(pokeName[0]).lower(), span["data-src"].replace("icon", "normal")])
+
+    opener = urllib.request.build_opener()
+    opener.addheaders = [('User-agent', 'Mozilla/5.0')]
+    urllib.request.install_opener(opener)
+
+    noValidSprites = []
+    for item in image_info:
+        if not os.path.exists(f'data/img/pokemon/sprites/{item[0]}'):
+            os.makedirs(f'data/img/pokemon/sprites/{item[0]}')
+        try:
+            urllib.request.urlretrieve(
+                f"{item[1]}", f"data/img/pokemon/sprites/{item[0]}/{item[0]}.png")
+        except:
+            noValidSprites.append(item[0])
+
+    print(noValidSprites)
 
 
 def read_csv():
@@ -42,4 +74,6 @@ def read_csv():
         except:
             print("Error on string: " + nameLink)
 
+
 read_csv()
+get_sprites()

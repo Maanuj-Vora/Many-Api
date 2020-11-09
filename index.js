@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require('path');
 const app = express();
 
 const port = 5000;
@@ -205,5 +206,5 @@ const listener = app.listen(port, function () {
 });
 
 app.get('*', function (request, response) {
-    request.status(404).render('404.html')
+    response.sendFile(path.join(__dirname + '/views/404.html'))
 });

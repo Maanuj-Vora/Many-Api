@@ -1,6 +1,9 @@
 name: A Good Bear Wears A Mask
 
 on:
+  push:
+    branches:
+      - master
   schedule:
     - cron: "0 6,18 * * *"
 
@@ -42,6 +45,6 @@ jobs:
         uses: EndBug/add-and-commit@v5
         with:
           message: "Coronavirus Data Visualized 😷"
-          branch: implementation
+          branch: data
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

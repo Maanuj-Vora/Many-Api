@@ -35,7 +35,7 @@ def get_sprites():
     spans = soup.find_all("span", class_='img-fixed icon-pkmn')
     image_info = []
     for span in spans:
-        pokeName = (span["data-alt"]).split(" ")
+        pokeName = (span["data-alt"]).replace(" icon", "")
         if pokeName[0].lower() == "Nidoran♂".lower():
             pokeName[0] = "Nidoran-m"
         elif pokeName[0].lower() == "Nidoran♀".lower():

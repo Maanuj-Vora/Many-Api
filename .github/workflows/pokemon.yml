@@ -36,4 +36,3 @@ jobs:
         with:
           commit_message: "I caught a Pokemon!"
           branch: gh-pages
-          skip_dirty_check: true

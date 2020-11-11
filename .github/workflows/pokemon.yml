@@ -30,8 +30,11 @@ jobs:
           git add .
           git diff-index --quiet HEAD || git commit -m "(╯°□°)╯︵◓" -a
           git push
-          
-          git checkout gh-pages
+      - name: Remove Old Files
+        uses: actions/checkout@v2
+        with:
+          ref: gh-pages
+      - run: |
           rm -R data/img/pokemon
           git commit -am "Removed Old Pokemon Items"
           git push

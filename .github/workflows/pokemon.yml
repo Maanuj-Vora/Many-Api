@@ -1,6 +1,7 @@
 name: Gotta Catch 'Em All
 
 on:
+  push:
   schedule:
     - cron: "0 0 1 * *"
 jobs:
@@ -28,6 +29,11 @@ jobs:
           git config --local user.name "Api Updater"
           git add .
           git diff-index --quiet HEAD || git commit -m "(╯°□°)╯︵◓" -a
+          git push
+          
+          git checkout -b gh-pages
+          rm -R data/pokemon
+          git commit -am "Removed Old Pokemon Items"
           git push
       - run: python data/scripts/pokemonImages.py
       - name: Commit changes

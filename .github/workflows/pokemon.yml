@@ -38,6 +38,9 @@ jobs:
           rm -R data/img/pokemon
           git commit -am "Removed Old Pokemon Items"
           git push
+        uses: actions/checkout@v2
+        with:
+          ref: master
       - run: python data/scripts/pokemonImages.py
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4

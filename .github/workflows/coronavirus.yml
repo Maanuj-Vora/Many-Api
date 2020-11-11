@@ -30,6 +30,17 @@ jobs:
           git add .
           git diff-index --quiet HEAD || git commit -m "Coronavirus Data Updated 🐻" -a
           git push
+      - name: Remove Old Files
+        uses: actions/checkout@v2
+        with:
+          ref: gh-pages
+      - run: |
+          rm -R data/img/covid
+          git commit -am "Removed Old Coronavirus Graphs"
+          git push
+        uses: actions/checkout@v2
+        with:
+          ref: master
       - name: Set up R ${{ matrix.r-version }}
         uses: r-lib/actions/setup-r@ffe45a39586f073cc2e9af79c4ba563b657dc6e3
         with:

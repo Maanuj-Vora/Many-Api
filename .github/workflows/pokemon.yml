@@ -31,7 +31,7 @@ jobs:
           git diff-index --quiet HEAD || git commit -m "(╯°□°)╯︵◓" -a
           git push
           
-          git checkout -b gh-pages
+          git checkout gh-pages
           rm -R data/pokemon
           git commit -am "Removed Old Pokemon Items"
           git push

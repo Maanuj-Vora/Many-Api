@@ -38,7 +38,7 @@ jobs:
           rm -R data/img/covid
           git commit -am "Removed Old Coronavirus Graphs"
           git push
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
         with:
           ref: master
       - name: Set up R ${{ matrix.r-version }}

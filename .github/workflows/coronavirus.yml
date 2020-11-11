@@ -1,7 +1,6 @@
 name: A Good Bear Wears A Mask
 
 on:
-  push:
   schedule:
     - cron: "0 6,18 * * *"
 

@@ -35,7 +35,7 @@ jobs:
         with:
           ref: gh-pages
       - run: |
-          rm -R data/img/pokemon
+          if [ -d data/img/pokemon ]; then rm -R data/img/pokemon; fi
           git commit -am "Removed Old Pokemon Items"
           git push
       - uses: actions/checkout@v2

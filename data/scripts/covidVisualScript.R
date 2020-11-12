@@ -6,7 +6,7 @@ library(ggplot2)
 library(hrbrthemes)
 
 fileUrl <- "https://raw.githubusercontent.com/Maanuj-Vora/Many-Api/master/data/csv/coronavirus.csv"
-covidData <- read.table(fileUrl, header=TRUE, sep="|")
+covidData <- read.csv(fileUrl, header=TRUE, sep="|")
 head(covidData)
 
 iso_codes <- covidData$iso_code

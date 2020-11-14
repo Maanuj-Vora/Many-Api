@@ -54,3 +54,6 @@ jobs:
           branch: gh-pages
           skip_dirty_check: true
           push_options: "--force"
+          commit_user_name: Api Updater
+          commit_user_email: actions@github.com
+          commit_author: Api Updater <actions@github.com>

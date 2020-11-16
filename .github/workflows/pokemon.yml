@@ -44,3 +44,6 @@ jobs:
         with:
           commit_message: "I caught a Pokemon!"
           branch: gh-pages
+          commit_user_name: Api Updater
+          commit_user_email: actions@github.com
+          commit_author: Api Updater <actions@github.com>

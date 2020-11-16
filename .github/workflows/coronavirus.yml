@@ -1,6 +1,8 @@
 name: A Good Bear Wears A Mask
 
 on:
+  push:
+    
   schedule:
     - cron: "0 6,18 * * *"
 
@@ -43,10 +45,16 @@ jobs:
         uses: r-lib/actions/setup-r@ffe45a39586f073cc2e9af79c4ba563b657dc6e3
         with:
           r-version: ${{ matrix.r-version }}
+        env:
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: true
       - name: Install Required Packages
         run: Rscript -e 'install.packages(c("tidyverse","ggplot2", "hrbrthemes"))'
+        env:
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: true
       - name: Run it
         run: Rscript data/scripts/covidVisualScript.R
+        env:
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: true
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:

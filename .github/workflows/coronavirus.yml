@@ -37,7 +37,7 @@ jobs:
         with:
           ref: gh-pages
       - run: |
-          if [ -d data/img/covid ]; then rm -R data/img/covid; git commit -c user.name='Api Updater' -c user.email='actions@github.com' -am "Removed Old Coronavirus Graphs"; git push; fi
+          if [ -d data/img/covid ]; then rm -R data/img/covid; git commit --author='Api Updater <actions@github.com>' -m "Removed Old Coronavirus Graphs"; git push; fi
       - uses: actions/checkout@v2
         with:
           ref: master

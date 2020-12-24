@@ -28,7 +28,7 @@ Currently it has
 * [x] Coronavirus Data from [Our World in Data](https://ourworldindata.org/coronavirus)
 * [x] Coronavirus Graphical Data
 * [x] MCU Quotes
-* [x] Pokemon Stats
+* [x] Pokemon Stats (Under Construction)
 
 We are always looking to add more api's!
 

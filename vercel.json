@@ -32,12 +32,12 @@
                 "Access-Control-Allow-Credentials": "true"
             },
             "dest": "index.js",
-            "continue": true,
-            "cleanUrls": true
+            "continue": true
         }
     ],
     "github": {
         "enabled": false
     },
-    "trailingSlash": false
+    "trailingSlash": false,
+    "cleanUrls": true
 }

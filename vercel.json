@@ -37,7 +37,5 @@
     ],
     "github": {
         "enabled": false
-    },
-    "trailingSlash": false,
-    "cleanUrls": true
+    }
 }

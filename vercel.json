@@ -33,7 +33,6 @@
             },
             "dest": "index.js",
             "continue": true,
-            "trailingSlash": false,
             "cleanUrls": true
         }
     ],

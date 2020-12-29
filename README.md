@@ -27,7 +27,7 @@ Currently it has
 * [x] Donald Trump Tweets from 8/12/20
 * [x] Coronavirus Data from [Our World in Data](https://ourworldindata.org/coronavirus)
 * [x] Coronavirus Graphical Data
-* [x] MCU Quotes
+* [x] Marvel Cinematic Universe Quotes
 * [x] Pokemon Stats (Under Construction)
 
 We are always looking to add more api's!

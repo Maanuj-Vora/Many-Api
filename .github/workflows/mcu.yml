@@ -1,6 +1,8 @@
 name: Marvel Speaks
 
-on: [push]
+on:
+  schedule:
+    - cron: "0 0 1 * *"
 
 jobs:
   build:

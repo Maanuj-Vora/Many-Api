@@ -17,5 +17,5 @@
     "pokemonArtwork": "http://maanuj-vora.github.io/Many-Api/data/img/pokemon/artwork/",
     "pokemonArtworkLink": "https://many-api.vercel.app/pokemon/getArtwork",
     "coronavirusVisual": "http://maanuj-vora.github.io/Many-Api/data/img/covid/",
-    "garfieldStripLink": "http://maanuj-vora.github.io/Many-Api/data/img/garfield/"
+    "garfieldStripLink": "https://raw.githubusercontent.com/Maanuj-Vora/Many-Api/gh-pages/data/img/garfield/"
 }

@@ -33,17 +33,17 @@ module.exports = {
         return getJsonScript.getItem(valueName)
     },
     urlExists: function (url) {
-        var request;
-        if (window.XMLHttpRequest)
-            request = new XMLHttpRequest();
-        else
-            request = new ActiveXObject("Microsoft.XMLHTTP");
-        request.open('GET', url, false);
-        request.send();
-        if (request.status === 404) {
-            return false
-        }
-        return true;
+        var https = require('https');
+        var http = require('http');
+        return https.get(url, function (res) {
+            if (res.statusCode == 301 || res.statusCode == 200) {
+                return true
+            }
+            else {
+                return false
+            }
+        });
+
     },
     randomDate: function (start, end) {
         var d = new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime())),
@@ -53,7 +53,7 @@ module.exports = {
 
         return [year, month, day].join('-');
     },
-    cleanDate: function (date) {
-        return [date.getFullYear(), '' + (date.getMonth() + 1), '' + date.getDate()].join('-');
+    cleanDate: function (dirtyDate) {
+        return [dirtyDate.getFullYear(), '' + (dirtyDate.getMonth() + 1), '' + dirtyDate.getDate()].join('-');
     }
 }

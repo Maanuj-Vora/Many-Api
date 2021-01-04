@@ -32,12 +32,13 @@ function getRandomLocal(link) {
 }
 
 function getDailyLocal(link) {
-    currentDate = apiHelper.cleanDate(new Date())
+    today = new Date()
+    currentDate = apiHelper.cleanDate(today)
     url = link + currentDate + ".jpg"
     if (apiHelper.urlExists(url)) {
         return url
     }
-    currentDate = apiHelper.cleanDate((new Date()).setDate((new Date()).getDate() - 1))
+    currentDate = apiHelper.cleanDate(today.setDate(today.getDate() - 1))
     url = link + currentDate + ".jpg"
     if (apiHelper.urlExists(url)) {
         return url

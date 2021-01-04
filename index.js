@@ -201,6 +201,23 @@ app.get("/pokemon/getArtwork", function (request, response) {
 });
 /* Pokemon Api End */
 
+/* Garfield Api Start */
+var garfield = require('./apiMethods/garfield');
+
+app.get("/garfield", function (request, response) {
+    response.send(garfield.getInfo())
+});
+
+app.get("/garfield/random", function (request, response) {
+    require('request').get(garfield.getRandom()).pipe(response)
+});
+
+app.get("/garfield/daily", function (request, response) {
+    require('request').get(garfield.getDaily()).pipe(response)
+});
+
+/* Garfield Api End */
+
 const listener = app.listen(port, function () {
     console.log("Your app is listening on port " + listener.address().port);
 });

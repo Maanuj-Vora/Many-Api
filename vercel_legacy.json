@@ -189,6 +189,13 @@
             ]
         },
         {
+            "src": "/pokemon",
+            "dest": "index.js",
+            "methods": [
+                "GET"
+            ]
+        },
+        {
             "src": "/pokemon/random",
             "dest": "index.js",
             "methods": [
@@ -204,6 +211,27 @@
         },
         {
             "src": "/pokemon/getArtwork",
+            "dest": "index.js",
+            "methods": [
+                "GET"
+            ]
+        },
+        {
+            "src": "/garfield",
+            "dest": "index.js",
+            "methods": [
+                "GET"
+            ]
+        },
+        {
+            "src": "/garfield/random",
+            "dest": "index.js",
+            "methods": [
+                "GET"
+            ]
+        },
+        {
+            "src": "/garfield/daily",
             "dest": "index.js",
             "methods": [
                 "GET"

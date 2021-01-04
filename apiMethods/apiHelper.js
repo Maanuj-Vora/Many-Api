@@ -31,5 +31,26 @@ module.exports = {
     getItem: function (valueName) {
         const getJsonScript = require('../jsonObj');
         return getJsonScript.getItem(valueName)
+    },
+    urlExists: function (url) {
+        var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+        var http = new XMLHttpRequest()
+        http.open('HEAD', url, false)
+        http.send()
+        if (http.status != 404)
+            return true
+        else
+            return false
+    },
+    randomDate: function (start, end) {
+        var d = new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime())),
+            month = '' + (d.getMonth() + 1),
+            day = '' + d.getDate(),
+            year = d.getFullYear();
+
+        return [year, month, day].join('-');
+    },
+    cleanDate: function (date) {
+        return [date.getFullYear(), '' + (date.getMonth() + 1), '' + date.getDate()].join('-');
     }
 }

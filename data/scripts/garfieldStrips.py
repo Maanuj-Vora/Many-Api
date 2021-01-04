@@ -15,10 +15,9 @@ folderPath = 'data/img/garfield'
 if not os.path.exists(folderPath):
     os.makedirs(folderPath)
 
-date = datetime.datetime(1980, 1, 1, 0, 0, 0)
+date = datetime.datetime(1990, 1, 1, 0, 0, 0)
 
-# while date.date() != dt.today().date():
-while date.date() != datetime.datetime(1990, 1, 1, 0, 0, 0).date():
+while date.date() != dt.today().date():
     urlEnd = f'{date.year}/{date.month}/{date.day}'
     fileEnd = f'{date.year}-{date.month}-{date.day}'
     tempBaseComicUrl = f'{baseComicUrl}{urlEnd}'

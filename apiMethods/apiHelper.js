@@ -33,14 +33,17 @@ module.exports = {
         return getJsonScript.getItem(valueName)
     },
     urlExists: function (url) {
-        var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
-        var http = new XMLHttpRequest()
-        http.open('HEAD', url, false)
-        http.send()
-        if (http.status != 404)
-            return true
+        var request;
+        if (window.XMLHttpRequest)
+            request = new XMLHttpRequest();
         else
+            request = new ActiveXObject("Microsoft.XMLHTTP");
+        request.open('GET', url, false);
+        request.send();
+        if (request.status === 404) {
             return false
+        }
+        return true;
     },
     randomDate: function (start, end) {
         var d = new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime())),

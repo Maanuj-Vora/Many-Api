@@ -2,7 +2,7 @@ name: Gotta Catch 'Em All
 
 on:
   schedule:
-    - cron: "0 0 1 * *"
+    - cron: "0 0 1 */6 *"
 jobs:
   build:
     name: Action

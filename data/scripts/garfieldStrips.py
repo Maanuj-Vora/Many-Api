@@ -18,7 +18,7 @@ if not os.path.exists(folderPath):
 date = datetime.datetime(1978, 6, 19, 0, 0, 0)
 
 # while date.date() != dt.today().date():
-while date.date() != datetime.datetime(1980, 0, 0, 0, 0, 0).date():
+while date.date() != datetime.datetime(1980, 1, 1, 0, 0, 0).date():
     urlEnd = f'{date.year}/{date.month}/{date.day}'
     fileEnd = f'{date.year}-{date.month}-{date.day}'
     tempBaseComicUrl = f'{baseComicUrl}{urlEnd}'

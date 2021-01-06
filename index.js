@@ -209,7 +209,11 @@ app.get("/garfield", function (request, response) {
 });
 
 app.get("/garfield/random", function (request, response) {
-    require('request').get(garfield.getRandom()).pipe(response)
+    response.send(garfield.getRandom())
+});
+
+app.get("/garfield/random/image", function (request, response) {
+    require('request').get(garfield.getRandomImage()).pipe(response)
 });
 
 app.get("/garfield/daily", function (request, response) {

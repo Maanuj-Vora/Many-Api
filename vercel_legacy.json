@@ -231,6 +231,13 @@
             ]
         },
         {
+            "src": "/garfield/random/image",
+            "dest": "index.js",
+            "methods": [
+                "GET"
+            ]
+        },
+        {
             "src": "/garfield/daily",
             "dest": "index.js",
             "methods": [

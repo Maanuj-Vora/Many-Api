@@ -13,12 +13,28 @@ module.exports = {
     getRandom: function () {
         return getRandomLocal(apiHelper.getItem('garfieldStripLink'))
     },
+    getRandomImage: function () {
+        return getRandomImageLocal(apiHelper.getItem('garfieldStripLink'))
+    },
     getDaily: function () {
         return getDailyLocal(apiHelper.getItem('garfieldStripLink'))
     }
 };
 
 function getRandomLocal(link) {
+    var counter = 0
+    while (counter < 10) {
+        randomDate = apiHelper.randomDate(new Date(1978, 6, 19), new Date())
+        url = link + randomDate + ".jpg"
+        if (apiHelper.urlExists(url)) {
+            return { 'url': url }
+        }
+        counter = counter + 1
+    }
+    return { "url": "", "error": "image could not be retrieved" }
+}
+
+function getRandomImageLocal(link) {
     var counter = 0
     while (counter < 10) {
         randomDate = apiHelper.randomDate(new Date(1978, 6, 19), new Date())

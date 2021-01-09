@@ -11,7 +11,7 @@ module.exports = {
         }
     },
     getRandom: function () {
-        return getRandomLocal(apiHelper.getRandomHelper(apiHelper.getValues('pokemon')), apiHelper.getItem('pokemonArtworkLink'))
+        return getRandomLocal(apiHelper.getRandomHelper(apiHelper.getValues('pokemon')), apiHelper.getItem('pokemonArtworkLink'), apiHelper.getItem('pokemonSpriteLink'))
     },
     getPokemon: function (name, number) {
         return getPokemonLocal(apiHelper.getValues('pokemon'), apiHelper.getItem('pokemonArtworkLink'), apiHelper.getItem('pokemonSpriteLink'), name, number)
@@ -24,9 +24,10 @@ module.exports = {
     }
 };
 
-function getRandomLocal(values, artwork) {
-    name = /[^/]*$/.exec(values['link'])[0]
+function getRandomLocal(values, artwork, sprite) {
+    var name = /[^/]*$/.exec(values['link'])[0]
     values['artworkLink'] = artwork + "?name=" + name
+    values['spriteLink'] = sprite + "?name=" + name
     return values
 }
 

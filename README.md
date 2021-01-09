@@ -30,7 +30,8 @@ Currently it has
 * [x] Coronavirus Data from [Our World in Data](https://ourworldindata.org/coronavirus)
 * [x] Coronavirus Graphical Data
 * [x] Marvel Cinematic Universe Quotes
-* [x] Pokemon Stats (Under Construction)
+* [x] Pokemon Stats
+* [x] Garfield Comic Strips
 
 We are always looking to add more api's!
 

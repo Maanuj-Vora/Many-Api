@@ -226,7 +226,6 @@ app.get("/garfield/random/image", function (request, response) {
 app.get("/garfield/daily", function (request, response) {
     require('request').get(garfield.getDaily()).pipe(response)
 });
-
 /* Garfield Api End */
 
 const listener = app.listen(port, function () {

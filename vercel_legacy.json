@@ -217,6 +217,13 @@
             ]
         },
         {
+            "src": "/pokemon/getSprite",
+            "dest": "index.js",
+            "methods": [
+                "GET"
+            ]
+        },
+        {
             "src": "/garfield",
             "dest": "index.js",
             "methods": [

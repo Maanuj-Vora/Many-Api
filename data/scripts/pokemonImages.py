@@ -36,12 +36,12 @@ def get_sprites():
     image_info = []
     for span in spans:
         pokeName = (span["data-alt"]).replace(" icon", "")
-        if pokeName[0].lower() == "Nidoran♂".lower():
-            pokeName[0] = "Nidoran-m"
-        elif pokeName[0].lower() == "Nidoran♀".lower():
-            pokeName[0] = "Nidoran-f"
+        if pokeName.lower() == "Nidoran♂".lower():
+            pokeName = "Nidoran-m"
+        elif pokeName.lower() == "Nidoran♀".lower():
+            pokeName = "Nidoran-f"
         image_info.append(
-            [(pokeName[0]).lower(), span["data-src"].replace("icon", "normal")])
+            [(pokeName).lower(), span["data-src"].replace("icon", "normal")])
 
     opener = urllib.request.build_opener()
     opener.addheaders = [('User-agent', 'Mozilla/5.0')]
@@ -52,12 +52,10 @@ def get_sprites():
         try:
             if not os.path.exists(f'data/img/pokemon/sprites/{item[0]}'):
                 os.makedirs(f'data/img/pokemon/sprites/{item[0]}')
-
             urllib.request.urlretrieve(
                 f"{item[1]}", f"data/img/pokemon/sprites/{item[0]}/{item[0]}.png")
         except:
             noValidSprites.append(item[0])
-        print(item[0])
 
     print(noValidSprites)
 

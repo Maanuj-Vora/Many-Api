@@ -14,10 +14,13 @@ module.exports = {
         return getRandomLocal(apiHelper.getRandomHelper(apiHelper.getValues('pokemon')), apiHelper.getItem('pokemonArtworkLink'))
     },
     getPokemon: function (name, number) {
-        return getPokemonLocal(apiHelper.getValues('pokemon'), apiHelper.getItem('pokemonArtworkLink'), name, number)
+        return getPokemonLocal(apiHelper.getValues('pokemon'), apiHelper.getItem('pokemonArtworkLink'), apiHelper.getItem('pokemonSpriteLink'), name, number)
     },
     getArtwork: function (name) {
         return getArtworkLocal(apiHelper.getValues('pokemon'), apiHelper.getItem('pokemonArtwork'), name)
+    },
+    getSprite: function (name) {
+        return getSpriteLocal(apiHelper.getValues('pokemon'), apiHelper.getItem('pokemonSprite'), name)
     }
 };
 
@@ -41,7 +44,21 @@ function getArtworkLocal(values, path, name) {
     return { "error": "image could not be retrieved" }
 }
 
-function getPokemonLocal(values, artwork, name, number) {
+function getSpriteLocal(values, path, name) {
+    data = []
+    for (var x = 0; x < values.length; x++) {
+        result = /[^/]*$/.exec(values[x].link)[0]
+        if (result.toLowerCase() == name.toLowerCase()) {
+            data.push(values[x])
+        }
+    }
+    if (data.length != 0) {
+        return (path + name.toLowerCase() + "/" + name.toLowerCase() + ".png")
+    }
+    return { "error": "image could not be retrieved" }
+}
+
+function getPokemonLocal(values, artwork, sprite, name, number) {
     data = []
     if (number == undefined && name == undefined) {
         return data
@@ -61,5 +78,6 @@ function getPokemonLocal(values, artwork, name, number) {
     }
     name = /[^/]*$/.exec(data['link'])[0]
     data['artworkLink'] = artwork + "?name=" + name
+    data['spriteLink'] = sprite + "?name=" + name
     return data
 }

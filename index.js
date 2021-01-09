@@ -199,6 +199,13 @@ app.get("/pokemon/getArtwork", function (request, response) {
     } = request.query
     require('request').get(pokemon.getArtwork(name)).pipe(response)
 });
+
+app.get("/pokemon/getSprite", function (request, response) {
+    const {
+        name
+    } = request.query
+    require('request').get(pokemon.getSprite(name)).pipe(response)
+});
 /* Pokemon Api End */
 
 /* Garfield Api Start */

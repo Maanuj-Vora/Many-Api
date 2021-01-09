@@ -10,7 +10,7 @@ import os
 
 baseComicUrl = "https://www.gocomics.com/calvinandhobbes/"
 
-folderPath = 'data/img/calvinAndHobbes'
+folderPath = 'data/img/calvinandhobbes'
 
 if not os.path.exists(folderPath):
     os.makedirs(folderPath)

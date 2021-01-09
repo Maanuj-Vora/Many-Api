@@ -12,7 +12,7 @@ baseComicUrl = "https://www.gocomics.com/"
 
 folderPath = 'data/img/'
 
-comics = ['garfield', 'calvinAndHobbes']
+comics = ['garfield', 'calvinandhobbes']
 
 
 date = dt.today().date()

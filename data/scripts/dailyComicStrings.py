@@ -10,7 +10,7 @@ import os
 
 baseComicUrl = "https://www.gocomics.com/"
 
-folderPath = 'data/img/'
+folderPath = 'data/img/comics'
 
 comics = ['garfield', 'calvinandhobbes']
 

@@ -70,17 +70,17 @@ for(iso in iso_codes){
   
   newVaccine <- ggplot(data = currentIso, aes(x = date, y = new_vaccinations)) +
     geom_line() + theme_ipsum() +
-    labs(title = sprintf("New Deaths of COVID-19 in %s", currentIso$location),
+    labs(title = sprintf("New Vaccinations for COVID-19 in %s", currentIso$location),
          x = "Month", y = "New Vaccinations")
   
   totalVaccine <- ggplot(data = currentIso, aes(x = date, y = total_vaccinations)) +
     geom_line() + theme_ipsum() +
-    labs(title = sprintf("New Deaths of COVID-19 in %s", currentIso$location),
+    labs(title = sprintf("Total Vaccinations for COVID-19 in %s", currentIso$location),
          x = "Month", y = "Total Vaccinations")
   
   peopleVaccinated <- ggplot(data = currentIso, aes(x = date, y = people_vaccinated)) +
     geom_line() + theme_ipsum() +
-    labs(title = sprintf("New Deaths of COVID-19 in %s", currentIso$location),
+    labs(title = sprintf("People Vaccinated for COVID-19 in %s", currentIso$location),
          x = "Month", y = "People Vaccinated")
   
   outputFile = sprintf("%s.png", "totalCases")

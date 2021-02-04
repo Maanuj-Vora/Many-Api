@@ -20,7 +20,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install flake8 pytest
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      - run: python data/scripts/comicScripts/calvinandhobbesStrips.py 
+      - run: python data/scripts/comicScripts/garfieldStrips.py 
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:

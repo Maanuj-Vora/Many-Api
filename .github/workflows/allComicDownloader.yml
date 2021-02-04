@@ -1,6 +1,6 @@
 name: All Mighty Comic Downloader
 
-on: [push]
+# on: [push]
 
 jobs:
   build:

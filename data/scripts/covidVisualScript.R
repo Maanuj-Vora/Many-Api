@@ -68,6 +68,20 @@ for(iso in iso_codes){
          x = "Month", y = "New Deaths")
 #  print(newDeathSmooth)
   
+  newVaccine <- ggplot(data = currentIso, aes(x = date, y = new_vaccinations)) +
+    geom_line() + theme_ipsum() +
+    labs(title = sprintf("New Deaths of COVID-19 in %s", currentIso$location),
+         x = "Month", y = "New Vaccinations")
+  
+  totalVaccine <- ggplot(data = currentIso, aes(x = date, y = total_vaccinations)) +
+    geom_line() + theme_ipsum() +
+    labs(title = sprintf("New Deaths of COVID-19 in %s", currentIso$location),
+         x = "Month", y = "Total Vaccinations")
+  
+  peopleVaccinated <- ggplot(data = currentIso, aes(x = date, y = people_vaccinated)) +
+    geom_line() + theme_ipsum() +
+    labs(title = sprintf("New Deaths of COVID-19 in %s", currentIso$location),
+         x = "Month", y = "People Vaccinated")
   
   outputFile = sprintf("%s.png", "totalCases")
   png(outputFile)
@@ -97,6 +111,21 @@ for(iso in iso_codes){
   outputFile = sprintf("%s.png", "newDeathSmooth")
   png(outputFile)  
   print(newDeathSmooth)
+  dev.off()
+  
+  outputFile = sprintf("%s.png", "newVaccine")
+  png(outputFile)  
+  print(newVaccine)
+  dev.off()
+  
+  outputFile = sprintf("%s.png", "totalVaccine")
+  png(outputFile)  
+  print(totalVaccine)
+  dev.off()
+  
+  outputFile = sprintf("%s.png", "peopleVaccinated")
+  png(outputFile)  
+  print(peopleVaccinated)
   dev.off()
   
   print(iso)

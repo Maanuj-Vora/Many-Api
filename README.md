@@ -20,7 +20,7 @@
 
 Many-Api is essentially a gathering of multiple RESTful Api's which can be used by all.
 
-For some examples, check out the implementation branch!
+For the documentation and the usage of these api's, check it out [here](http://blog.maanujvora.me/categories/github-repositories/many-api/)
 
 Currently it has
 

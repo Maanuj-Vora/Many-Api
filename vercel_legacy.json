@@ -250,6 +250,34 @@
             "methods": [
                 "GET"
             ]
+        },
+        {
+            "src": "/calvinhobbes",
+            "dest": "index.js",
+            "methods": [
+                "GET"
+            ]
+        },
+        {
+            "src": "/calvinhobbes/random",
+            "dest": "index.js",
+            "methods": [
+                "GET"
+            ]
+        },
+        {
+            "src": "/calvinhobbes/random/image",
+            "dest": "index.js",
+            "methods": [
+                "GET"
+            ]
+        },
+        {
+            "src": "/calvinhobbes/daily",
+            "dest": "index.js",
+            "methods": [
+                "GET"
+            ]
         }
     ]
 }

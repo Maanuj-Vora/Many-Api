@@ -228,6 +228,26 @@ app.get("/garfield/daily", function (request, response) {
 });
 /* Garfield Api End */
 
+/* Calvin and Hobbes Api Start */
+var calvinhobbes = require('./apiMethods/calvinhobbes');
+
+app.get("/calvinhobbes", function (request, response) {
+    response.send(calvinhobbes.getInfo())
+});
+
+app.get("/calvinhobbes/random", function (request, response) {
+    response.send(calvinhobbes.getRandom())
+});
+
+app.get("/calvinhobbes/random/image", function (request, response) {
+    require('request').get(calvinhobbes.getRandomImage()).pipe(response)
+});
+
+app.get("/calvinhobbes/daily", function (request, response) {
+    require('request').get(calvinhobbes.getDaily()).pipe(response)
+});
+/* Calvin and Hobbes Api End */
+
 const listener = app.listen(port, function () {
     console.log("Your app is listening on port " + listener.address().port);
 });

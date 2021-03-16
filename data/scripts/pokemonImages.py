@@ -5,10 +5,10 @@ import csv
 import requests
 import urllib.request
 import shutil
-import unidecode
+from unidecode import unidecode
 
 def format_name(name):
-    return unidecode.unidecode((((((name.lower()).replace(" ", "-")).replace(".", "")).replace(":", "")).replace("♂", "-m")).replace("♀", "-f"))
+    return unidecode((((((name.lower()).replace(" ", "-")).replace(".", "")).replace(":", "")).replace("♂", "-m")).replace("♀", "-f"))
 
 def get_images(pokemon):
 

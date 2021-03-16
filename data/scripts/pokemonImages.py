@@ -54,7 +54,14 @@ def get_sprites():
                 f"{item[1]}", f"data/img/pokemon/sprites/{item[0]}/{item[0]}.png")
             print(f'Sprite Downloaded: {item[0]}')
         except:
-            noValidSprites.append(item[0])
+            try:
+                if not os.path.exists(f'data/img/pokemon/sprites/{item[0]}'):
+                    os.makedirs(f'data/img/pokemon/sprites/{item[0]}')
+                urllib.request.urlretrieve(
+                    f"https://img.pokemondb.net/sprites/bank/normal/{item[0]}.png", f"data/img/pokemon/sprites/{item[0]}/{item[0]}.png")
+                print(f'Sprite Downloaded: {item[0]}')
+            except:
+                noValidSprites.append(item[0])
 
     print(noValidSprites)
 

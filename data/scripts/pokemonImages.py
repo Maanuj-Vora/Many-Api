@@ -6,10 +6,12 @@ import requests
 import urllib.request
 import shutil
 
+def format_name(name):
+    return (((((name.lower()).replace(" ", "-")).replace(".", "")).replace(":", "")).replace("♂", "-m")).replace("♀", "-f")
 
 def get_images(pokemon):
 
-    pokemon = pokemon.lower()
+    pokemon = format_name(pokemon)
 
     if not os.path.exists(f'data/img/pokemon/artwork/{pokemon}'):
         os.makedirs(f'data/img/pokemon/artwork/{pokemon}')
@@ -25,7 +27,7 @@ def get_images(pokemon):
     urllib.request.install_opener(opener)
 
     urllib.request.urlretrieve(
-        f"{artUrl['content']}", f"data/img/pokemon/artwork/{pokemon.lower()}/{pokemon.lower()}.png")
+        f"{artUrl['content']}", f"data/img/pokemon/artwork/{pokemon}/{pokemon}.png")
 
 
 def get_sprites():
@@ -35,13 +37,9 @@ def get_sprites():
     spans = soup.find_all("span", class_='img-fixed icon-pkmn')
     image_info = []
     for span in spans:
-        pokeName = (span["data-alt"]).replace(" icon", "")
-        if pokeName.lower() == "Nidoran♂".lower():
-            pokeName = "Nidoran-m"
-        elif pokeName.lower() == "Nidoran♀".lower():
-            pokeName = "Nidoran-f"
+        pokeName = format_name((span["data-alt"]).replace(" icon", ""))
         image_info.append(
-            [(pokeName).lower(), span["data-src"].replace("icon", "normal")])
+            [pokeName, span["data-src"].replace("icon", "normal")])
 
     opener = urllib.request.build_opener()
     opener.addheaders = [('User-agent', 'Mozilla/5.0')]
@@ -54,6 +52,7 @@ def get_sprites():
                 os.makedirs(f'data/img/pokemon/sprites/{item[0]}')
             urllib.request.urlretrieve(
                 f"{item[1]}", f"data/img/pokemon/sprites/{item[0]}/{item[0]}.png")
+            print(f'Sprite Downloaded: {item[0]}')
         except:
             noValidSprites.append(item[0])
 

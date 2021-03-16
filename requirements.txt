@@ -4,6 +4,7 @@ beautifulsoup4==4.9.3
 bs4==0.0.1
 certifi==2020.6.20
 chardet==3.0.4
+colorama==0.4.4
 DateTime==4.3
 html5lib==1.1
 idna==2.10
@@ -28,6 +29,7 @@ toml==0.10.1
 tqdm==4.50.2
 tweepy==3.9.0
 typed-ast==1.4.1
+unicode==2.8
 urllib3==1.25.10
 webencodings==0.5.1
 wrapt==1.12.1

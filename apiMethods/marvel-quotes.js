@@ -28,7 +28,7 @@ module.exports = {
 function getAuthorLocal(values, author) {
     data = []
     for (var x = 0; x < values.length; x++) {
-        if (values[x].author.toLowerCase().includes(author.toLowerCase())) {
+        if (((values[x].author.toLowerCase()).replace(/\s/g, '')).includes(author.toLowerCase())) {
             data.push(values[x])
         }
     }

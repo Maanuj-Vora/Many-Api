@@ -21,11 +21,11 @@ module.exports = {
         return apiHelper.getAmountHelper(apiHelper.getValues('marvelQuote'), amount)
     },
     getAuthor: function (author) {
-        return getAuthorLocal(apiHelper.getValues('marvelQuote'), author);
+        return getAuthorLocal(apiHelper.getValues('marvelQuote'), author.replace(/\s/g, ''));
     }
 };
 
-function getAuthorLocal(values, author){
+function getAuthorLocal(values, author) {
     data = []
     for (var x = 0; x < values.length; x++) {
         if (values[x].author.toLowerCase().includes(author.toLowerCase())) {

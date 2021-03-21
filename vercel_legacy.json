@@ -182,6 +182,13 @@
             ]
         },
         {
+            "src": "/marvel-quote/author",
+            "dest": "/index.js",
+            "methods": [
+                "GET"
+            ]
+        },
+        {
             "src": "/marvel-quote/amount",
             "dest": "/index.js",
             "methods": [

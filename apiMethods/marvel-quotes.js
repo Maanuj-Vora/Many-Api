@@ -19,5 +19,18 @@ module.exports = {
     },
     getAmount: function (amount) {
         return apiHelper.getAmountHelper(apiHelper.getValues('marvelQuote'), amount)
+    },
+    getAuthor: function (author) {
+        return getAuthorLocal(apiHelper.getValues('marvelQuote'), author);
     }
 };
+
+function getAuthorLocal(values, author){
+    data = []
+    for (var x = 0; x < values.length; x++) {
+        if (values[x].author.toLowerCase().includes(author.toLowerCase())) {
+            data.push(values[x])
+        }
+    }
+    return data
+}

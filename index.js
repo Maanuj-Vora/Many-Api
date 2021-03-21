@@ -164,7 +164,7 @@ app.get("/marvel-quote/random", function (request, response) {
     response.send(marvelQuotes.getRandom())
 });
 
-app.get("marvel-quote/author", function (request, response){
+app.get("/marvel-quote/author", function (request, response){
     const {
         author
     } = request.query

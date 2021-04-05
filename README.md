@@ -1,5 +1,9 @@
 # Many Api
 
+[![GitHub issues](https://img.shields.io/github/issues/Maanuj-Vora/Many-Api?style=for-the-badge)](https://github.com/Maanuj-Vora/Many-Api/issues)
+
+![Website](https://img.shields.io/website?down_color=red&down_message=Api%20Is%20Offline&style=for-the-badge&up_message=Api%20Is%20Online&url=https%3A%2F%2Fmany-api.vercel.app%2F)
+
 | Action For | Runs | Action Status |
 | --- | --- | --- |
 | CSV to JSON Converter | Anytime new data is fetched | ![Action Jackson](https://github.com/Maanuj-Vora/Many-Api/workflows/Action%20Jackson/badge.svg) |
@@ -9,10 +13,6 @@
 | Marvel Quotes | First day of each year | ![Marvel Speaks](https://github.com/Maanuj-Vora/Many-Api/workflows/Marvel%20Speaks/badge.svg) |
 | Garfield Strips | Once a day | ![Garfield](https://github.com/Maanuj-Vora/Many-Api/workflows/Garfield/badge.svg) |
 
-
-| | |
-| --- | --- |
-| ![Website](https://img.shields.io/website?down_color=red&down_message=Api%20Is%20Offline&style=for-the-badge&up_message=Api%20Is%20Online&url=https%3A%2F%2Fmany-api.vercel.app%2F) | [![GitHub issues](https://img.shields.io/github/issues/Maanuj-Vora/Many-Api?style=for-the-badge)](https://github.com/Maanuj-Vora/Many-Api/issues) |
 
 ---
 
@@ -40,6 +40,15 @@ We are always looking to add more api's!
 ### Documentation
 
 Please note that all documentation can be found in the `examples/` folder. If you would like to contribute to the docuementation in a different language, please do so by submitting a pull request
+
+---
+
+### Todo
+
+* [ ] Commenting the code base and making it more readable overall
+* [ ] Editing the documentation and perhaps providing more examples
+* [ ] Edit the Pokémon scraping script to make it more efficient
+* [ ] Updating valid paths and documenting them
 
 ---
 

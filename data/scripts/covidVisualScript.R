@@ -127,6 +127,11 @@ for(iso in iso_codes){
   png(outputFile)  
   print(peopleVaccinated)
   dev.off()
+
+  outputFile = sprintf("%s.png", "icuPatients")
+  png(outputFile)  
+  print(icuPatients)
+  dev.off()
   
   print(iso)
   

@@ -82,6 +82,11 @@ for(iso in iso_codes){
     geom_line() + theme_ipsum() +
     labs(title = sprintf("People Vaccinated for COVID-19 in %s", currentIso$location),
          x = "Month", y = "People Vaccinated")
+
+  icuPatients <- ggplot(data = currentIso, aes(x = date, y = icu_patients)) +
+    geom_line() + theme_ipsum() +
+    labs(title = sprintf("ICU Patients for COVID-19 in %s", currentIso$location),
+         x = "Month", y = "ICU Patients")
   
   outputFile = sprintf("%s.png", "totalCases")
   png(outputFile)

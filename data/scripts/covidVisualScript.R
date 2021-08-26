@@ -22,6 +22,14 @@ setwd("img")
 dir.create("covid", showWarnings = FALSE)
 setwd("covid")
 
+write_png <- function(file_name, data) {
+  outputFile = sprintf("%s.png", file_name)
+  png(outputFile)
+  print(data)
+  dev.off()
+  return()
+}
+
 for(iso in iso_codes){
   if(!dir.exists(iso)){
     dir.create(iso, showWarnings = FALSE)
@@ -36,37 +44,31 @@ for(iso in iso_codes){
       geom_line() + theme_ipsum() +
       labs(title = sprintf("Total Cases of COVID-19 in %s", currentIso$location),
            x = "Month", y = "Total Cases")
-#  print(totalCases)
 
   newCases <- ggplot(data = currentIso, aes(x = date, y = new_cases)) +
       geom_bar(stat = "identity", fill = "purple") + theme_ipsum() +
       labs(title = sprintf("New Cases of COVID-19 in %s", currentIso$location),
            x = "Month", y = "New Cases")
-#  print(newCases)
   
   newCaseSmooth <- ggplot(data = currentIso, aes(x = date, y = new_cases_smoothed)) +
     geom_line() + theme_ipsum() +
     labs(title = sprintf("New Cases of COVID-19 in %s", currentIso$location),
          x = "Month", y = "New Cases")
-#  print(newCaseSmooth)
   
   totalDeaths <- ggplot(data = currentIso, aes(x = date, y = total_deaths)) +
       geom_line() + theme_ipsum() +
       labs(title = sprintf("Total Deaths due to COVID-19 in %s", currentIso$location),
            x = "Month", y = "Total Deaths")
-#  print(totalDeaths)
   
   newDeaths <- ggplot(data = currentIso, aes(x = date, y = new_deaths)) +
       geom_bar(stat = "identity", fill = "purple") + theme_ipsum() +
       labs(title = sprintf("New Deaths due to of COVID-19 in %s", currentIso$location),
            x = "Month", y = "New Deaths")
-#  print(newDeaths)
   
   newDeathSmooth <- ggplot(data = currentIso, aes(x = date, y = new_deaths_smoothed)) +
     geom_line() + theme_ipsum() +
     labs(title = sprintf("New Deaths of COVID-19 in %s", currentIso$location),
          x = "Month", y = "New Deaths")
-#  print(newDeathSmooth)
   
   newVaccine <- ggplot(data = currentIso, aes(x = date, y = new_vaccinations)) +
     geom_line() + theme_ipsum() +
@@ -88,55 +90,66 @@ for(iso in iso_codes){
     labs(title = sprintf("ICU Patients for COVID-19 in %s", currentIso$location),
          x = "Month", y = "ICU Patients")
   
-  outputFile = sprintf("%s.png", "totalCases")
-  png(outputFile)
-  print(totalCases)
-  dev.off()
-  
-  outputFile = sprintf("%s.png", "newCases")
-  png(outputFile)  
-  print(newCases)
-  dev.off()
-  
-  outputFile = sprintf("%s.png", "newCaseSmooth")
-  png(outputFile)  
-  print(newCaseSmooth)
-  dev.off()
-  
-  outputFile = sprintf("%s.png", "totalDeaths")
-  png(outputFile)  
-  print(totalDeaths)
-  dev.off()
-  
-  outputFile = sprintf("%s.png", "newDeaths")
-  png(outputFile) 
-  print(newDeaths)
-  dev.off()
-  
-  outputFile = sprintf("%s.png", "newDeathSmooth")
-  png(outputFile)  
-  print(newDeathSmooth)
-  dev.off()
-  
-  outputFile = sprintf("%s.png", "newVaccine")
-  png(outputFile)  
-  print(newVaccine)
-  dev.off()
-  
-  outputFile = sprintf("%s.png", "totalVaccine")
-  png(outputFile)  
-  print(totalVaccine)
-  dev.off()
-  
-  outputFile = sprintf("%s.png", "peopleVaccinated")
-  png(outputFile)  
-  print(peopleVaccinated)
-  dev.off()
+  write_png("totalCases", totalCases)
+  write_png("newCases", newCases)
+  write_png("newCaseSmooth", newCaseSmooth)
+  write_png("totalDeaths", totalDeaths)
+  write_png("newDeaths", newDeaths)
+  write_png("newDeathSmooth", newDeathSmooth)
+  write_png("newVaccine", newVaccine)
+  write_png("totalVaccine", totalVaccine)
+  write_png("peopleVaccinated", peopleVaccinated)
+  write_png("icuPatients", icuPatients)
 
-  outputFile = sprintf("%s.png", "icuPatients")
-  png(outputFile)  
-  print(icuPatients)
-  dev.off()
+  # outputFile = sprintf("%s.png", "totalCases")
+  # png(outputFile)
+  # print(totalCases)
+  # dev.off()
+  
+  # outputFile = sprintf("%s.png", "newCases")
+  # png(outputFile)  
+  # print(newCases)
+  # dev.off()
+  
+  # outputFile = sprintf("%s.png", "newCaseSmooth")
+  # png(outputFile)  
+  # print(newCaseSmooth)
+  # dev.off()
+  
+  # outputFile = sprintf("%s.png", "totalDeaths")
+  # png(outputFile)  
+  # print(totalDeaths)
+  # dev.off()
+  
+  # outputFile = sprintf("%s.png", "newDeaths")
+  # png(outputFile) 
+  # print(newDeaths)
+  # dev.off()
+  
+  # outputFile = sprintf("%s.png", "newDeathSmooth")
+  # png(outputFile)  
+  # print(newDeathSmooth)
+  # dev.off()
+  
+  # outputFile = sprintf("%s.png", "newVaccine")
+  # png(outputFile)  
+  # print(newVaccine)
+  # dev.off()
+  
+  # outputFile = sprintf("%s.png", "totalVaccine")
+  # png(outputFile)  
+  # print(totalVaccine)
+  # dev.off()
+  
+  # outputFile = sprintf("%s.png", "peopleVaccinated")
+  # png(outputFile)  
+  # print(peopleVaccinated)
+  # dev.off()
+
+  # outputFile = sprintf("%s.png", "icuPatients")
+  # png(outputFile)  
+  # print(icuPatients)
+  # dev.off()
   
   print(iso)
   

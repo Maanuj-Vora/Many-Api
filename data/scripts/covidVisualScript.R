@@ -101,56 +101,6 @@ for(iso in iso_codes){
   write_png("peopleVaccinated", peopleVaccinated)
   write_png("icuPatients", icuPatients)
 
-  # outputFile = sprintf("%s.png", "totalCases")
-  # png(outputFile)
-  # print(totalCases)
-  # dev.off()
-  
-  # outputFile = sprintf("%s.png", "newCases")
-  # png(outputFile)  
-  # print(newCases)
-  # dev.off()
-  
-  # outputFile = sprintf("%s.png", "newCaseSmooth")
-  # png(outputFile)  
-  # print(newCaseSmooth)
-  # dev.off()
-  
-  # outputFile = sprintf("%s.png", "totalDeaths")
-  # png(outputFile)  
-  # print(totalDeaths)
-  # dev.off()
-  
-  # outputFile = sprintf("%s.png", "newDeaths")
-  # png(outputFile) 
-  # print(newDeaths)
-  # dev.off()
-  
-  # outputFile = sprintf("%s.png", "newDeathSmooth")
-  # png(outputFile)  
-  # print(newDeathSmooth)
-  # dev.off()
-  
-  # outputFile = sprintf("%s.png", "newVaccine")
-  # png(outputFile)  
-  # print(newVaccine)
-  # dev.off()
-  
-  # outputFile = sprintf("%s.png", "totalVaccine")
-  # png(outputFile)  
-  # print(totalVaccine)
-  # dev.off()
-  
-  # outputFile = sprintf("%s.png", "peopleVaccinated")
-  # png(outputFile)  
-  # print(peopleVaccinated)
-  # dev.off()
-
-  # outputFile = sprintf("%s.png", "icuPatients")
-  # png(outputFile)  
-  # print(icuPatients)
-  # dev.off()
-  
   print(iso)
   
   setwd("..")

@@ -13,15 +13,17 @@ app.listen(process.env.PORT, () => {
 Visit http://localhost:` + listener.address().port);
 });
 
+/* Homepage returned to users */
 app.get("/", (req, res) => {
     res.send({
         "welcome": "Welcome to Many Api",
         "about": "This api has been created by Maanuj Vora",
         "link": "Visit here to get more up to speed https://github.com/Maanuj-Vora/Many-Api",
         "possible paths": [
-            '/atla-quote', '/jokes', '/tweets', '/coronavirus', '/marvel-quote'
+            '/atla-quote', '/jokes', '/tweets', '/coronavirus', '/marvel-quotes', '/pokemon', '/garfield'
         ],
-        "documentation": "Documentation coming soon"
+        "documentation": "http://blog.maanujvora.me/categories/github-repositories/many-api/",
+        "project": "https://github.com/Maanuj-Vora/Many-Api"
     });
 });
 

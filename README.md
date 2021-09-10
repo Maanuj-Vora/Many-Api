@@ -1,6 +1,6 @@
 # Many Api
 
-[![GitHub issues](https://img.shields.io/github/issues/Maanuj-Vora/Many-Api?style=for-the-badge)](https://github.com/Maanuj-Vora/Many-Api/issues)
+![GitHub issues](https://img.shields.io/github/issues/Maanuj-Vora/Many-Api?style=for-the-badge)](https://github.com/Maanuj-Vora/Many-Api/issues)
 
 ![Website](https://img.shields.io/website?down_message=Offline&label=Many-Api&style=for-the-badge&up_message=Online&url=https%3A%2F%2Fmany-api.vercel.app%2F)
 

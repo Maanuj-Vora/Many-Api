@@ -8,7 +8,7 @@
 | --------------------- | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
 | CSV to JSON Converter | Anytime new data is fetched | ![Action Jackson](https://github.com/Maanuj-Vora/Many-Api/workflows/Action%20Jackson/badge.svg)                                                 |
 | Twitter Tweets        | Once a day                  | ![The Foxy Does What The Foxy Wants](https://github.com/Maanuj-Vora/Many-Api/workflows/The%20Foxy%20Does%20What%20The%20Foxy%20Wants/badge.svg) |
-| Coronavirus Data      | Twice a day                 | ![A Good Bear Wears A Mask](https://github.com/Maanuj-Vora/Many-Api/workflows/A%20Good%20Bear%20Wears%20A%20Mask/badge.svg)                     |
+| Coronavirus Data [Deprecated]     | Twice a day                 | ![A Good Bear Wears A Mask](https://github.com/Maanuj-Vora/Many-Api/workflows/A%20Good%20Bear%20Wears%20A%20Mask/badge.svg)                     |
 | Pokemon               | Once every six months       | ![Gotta Catch 'Em All](https://github.com/Maanuj-Vora/Many-Api/workflows/Gotta%20Catch%20'Em%20All/badge.svg)                                   |
 | Marvel Quotes         | First day of each year      | ![Marvel Speaks](https://github.com/Maanuj-Vora/Many-Api/workflows/Marvel%20Speaks/badge.svg)                                                   |
 | Garfield Strips       | Once a day                  | ![Garfield](https://github.com/Maanuj-Vora/Many-Api/workflows/Garfield/badge.svg)                                                               |
@@ -29,13 +29,19 @@ Currently it has
 * [x] ATLA Quotes
 * [x] Jokes
 * [x] Donald Trump Tweets from 8/12/20
-* [x] Coronavirus Data from [Our World in Data](https://ourworldindata.org/coronavirus)
-* [x] Coronavirus Graphical Data
+* [x] Coronavirus Data from [Our World in Data](https://ourworldindata.org/coronavirus) -> Deprecated
+* [x] Coronavirus Graphical Data -> Deprecated
 * [x] Marvel Cinematic Universe Quotes
 * [x] Pokemon Stats
 * [x] Garfield Comic Strips
 
 We are always looking to add more api's!
+
+---
+
+#### Coronavirus Data Deprecation
+
+Due to the file storing the data exceeding over Github's 100mb limit, this api path is currently turned off. Although LFS may be a potential option in the future
 
 ---
 

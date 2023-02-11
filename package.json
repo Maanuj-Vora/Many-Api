@@ -27,7 +27,7 @@
     "package.json": "^2.0.1",
     "request": "^2.88.2",
     "url-exist": "^2.0.2",
-    "vercel": "^20.1.2",
+    "vercel": "^28.15.3",
     "xmlhttprequest": "^1.8.0",
     "next": "^12.2.4"
   }
